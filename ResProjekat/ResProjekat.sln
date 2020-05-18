@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EFB5F135-345A-4980-8233-426652CABFEF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{28E5E639-DFE1-454F-8531-8762D7F5E0DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parser", "Parser", "{2564399C-CBC9-47B4-AC3F-81EE38A6AFD6}"
@@ -16,16 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A31012F3-443A-4D29-B72A-0846BB24AD40}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EFB5F135-345A-4980-8233-426652CABFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFB5F135-345A-4980-8233-426652CABFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFB5F135-345A-4980-8233-426652CABFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFB5F135-345A-4980-8233-426652CABFEF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
