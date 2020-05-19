@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DE5C35B-4BD4-456C-ACD6-41753AC6ACBB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>UnosTeksta</RootNamespace>
-    <AssemblyName>UnosTeksta</AssemblyName>
+    <ProjectGuid>{46EDC42B-9E40-4232-95AC-5EF47011635D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parser</RootNamespace>
+    <AssemblyName>Parser</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="PrimljeniTekst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnesiteTekst.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProsledjivanjeTeksta\ProsledjivanjeTeksta.csproj">
       <Project>{19015534-6c7c-4b3b-b8ec-1b781c0bad53}</Project>
       <Name>ProsledjivanjeTeksta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnosTeksta\UnosTeksta.csproj">
+      <Project>{5de5c35b-4bd4-456c-acd6-41753ac6acbb}</Project>
+      <Name>UnosTeksta</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
