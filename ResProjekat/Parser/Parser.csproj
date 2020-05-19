@@ -49,10 +49,6 @@
       <Project>{19015534-6c7c-4b3b-b8ec-1b781c0bad53}</Project>
       <Name>ProsledjivanjeTeksta</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnosTeksta\UnosTeksta.csproj">
-      <Project>{5de5c35b-4bd4-456c-acd6-41753ac6acbb}</Project>
-      <Name>UnosTeksta</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

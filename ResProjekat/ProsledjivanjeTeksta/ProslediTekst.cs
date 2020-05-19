@@ -11,7 +11,7 @@ namespace ProsledjivanjeTeksta
 {
     public class ProslediTekst
     {
-        public string UnetiTekst { get; set; }
+        public  string UnetiTekst { get; set; }
 
         public ProslediTekst()
         {

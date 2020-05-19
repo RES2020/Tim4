@@ -4,19 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProsledjivanjeTeksta;
-using UnosTeksta;
 
 namespace Parser
 {
-  
-
     public class PrimljeniTekst
     {
-      
+        private string primljenaPoruka;
 
-        public static string poruka = "";
+        public string PrimljenaPoruka
+        {
+            get { return primljenaPoruka; }
+            set { primljenaPoruka = value; }
+        }
 
-       
 
+        public PrimljeniTekst()
+        {
+
+        }
+
+        public string SaljiKlijentu()
+        {
+            if (primljenaPoruka != "a")
+            {
+                return "Niste dobro uneli poruku!";
+            }
+            else
+            {
+                return "Dobro ste uneli poruku!";
+            }
+        }
     }
 }
