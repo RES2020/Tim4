@@ -48,7 +48,7 @@ namespace UnosTeksta
                 ptt.PrimljenaPoruka = pt.UnetiTekst;
                 string s = "";
                 s = ptt.SaljiKlijentu();
-                Console.WriteLine("Odgovor parsera je: " + s);
+                Console.WriteLine(" * ****ODGOVOR OD PARSERA * ****\n\n" + s);
                 Console.ReadLine();
             } while (pt.UnetiTekst != "izadji");
         }

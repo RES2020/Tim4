@@ -28,6 +28,7 @@ namespace Parser
             string s = "";
             if (OtvarajuciTagovi() && ZatvarajuciTagovi())
             {
+                
                 s = "Tekst je unet u odgovarajucem html formatu!";
             }
             else
