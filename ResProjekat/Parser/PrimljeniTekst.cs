@@ -84,15 +84,5 @@ namespace Parser
             }
             return b;
         }
-
-        public bool IspravnostTeksta()
-        {
-            bool b = false;
-            if(OtvarajuciTagovi() && ZatvarajuciTagovi())
-            {
-                b = true;
-            }
-            return b;
-        }
     }
 }
