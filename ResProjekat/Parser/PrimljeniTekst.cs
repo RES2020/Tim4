@@ -84,5 +84,18 @@ namespace Parser
             }
             return b;
         }
+
+        public bool IspravnostTeskta()
+        {
+            bool b = false;
+
+            if(OtvarajuciTagovi()&&ZatvarajuciTagovi())
+            {
+                b = true;
+            }
+           
+                return b;
+            
+        }
     }
 }

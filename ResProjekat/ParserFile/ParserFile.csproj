@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DE5C35B-4BD4-456C-ACD6-41753AC6ACBB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>UnosTeksta</RootNamespace>
-    <AssemblyName>UnosTeksta</AssemblyName>
+    <ProjectGuid>{EA6228E4-98DD-48ED-AA08-A2F15605E6BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ParserFile</RootNamespace>
+    <AssemblyName>ParserFile</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,31 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ProveraFajla.cs" />
+    <Compile Include="UpisUFajl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnesiteTekst.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <ProjectReference Include="..\ParserFajl\ParserFajl.csproj">
-      <Project>{973cfdf7-7182-4b34-a067-6ca33c8383a3}</Project>
-      <Name>ParserFajl</Name>
-=======
-    <ProjectReference Include="..\ParserFile\ParserFile.csproj">
-      <Project>{ea6228e4-98dd-48ed-aa08-a2f15605e6be}</Project>
-      <Name>ParserFile</Name>
->>>>>>> 1adaeacb5100e3092581839f5a4a4577e7307e37
-    </ProjectReference>
     <ProjectReference Include="..\Parser\Parser.csproj">
       <Project>{46edc42b-9e40-4232-95ac-5ef47011635d}</Project>
       <Name>Parser</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProsledjivanjeTeksta\ProsledjivanjeTeksta.csproj">
-      <Project>{19015534-6c7c-4b3b-b8ec-1b781c0bad53}</Project>
-      <Name>ProsledjivanjeTeksta</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
