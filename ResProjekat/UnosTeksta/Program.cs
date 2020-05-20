@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnosTeksta;
 using ProsledjivanjeTeksta;
 using Parser;
+using ParserFajl;
 
 namespace UnosTeksta
 {
@@ -13,6 +14,8 @@ namespace UnosTeksta
     {
         public static ProslediTekst pt = new ProslediTekst();
         public static PrimljeniTekst ptt = new PrimljeniTekst();
+        public static ProveraFajla pf = new ProveraFajla();
+        public static UpisUFajl uf = new UpisUFajl();
         private static string povrataPoruka;
 
         public string PovratnaPoruka
@@ -41,15 +44,25 @@ namespace UnosTeksta
             {
                 UnesiteTekst ut = new UnesiteTekst();
                 pt.UnetiTekst = ut.Unos();
+                pf.PrimljenFajl = ut.Unos();
+                uf.PrimljeniTekst = ut.Unos();
                 if (pt.UnetiTekst == "izadji")
                 {
                     break;
                 }
-                ptt.PrimljenaPoruka = pt.UnetiTekst;
+                ptt.PrimljenaPoruka = ut.Unos();
                 string s = "";
                 s = ptt.SaljiKlijentu();
-                Console.WriteLine(" * ****ODGOVOR OD PARSERA * ****\n\n" + s);
-                Console.ReadLine();
+                Console.WriteLine("*****ODGOVOR OD PARSERA *****\n\n" + s);
+               // bool b = uf.ProverenTekst();
+               // if (b)
+               // {
+               //     Console.WriteLine("Tekst je ispravan");
+               // }
+               // else
+               // {
+               //     Console.WriteLine("Nije");
+               // }
             } while (pt.UnetiTekst != "izadji");
         }
     }
