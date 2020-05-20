@@ -25,9 +25,12 @@ namespace Parser
 
         public string SaljiKlijentu()
         {
-            if (primljenaPoruka != "a")
+            string[] niz=primljenaPoruka.Split(' ');
+
+            if (niz[0] != "<html>")
+
             {
-                return "Niste dobro uneli poruku!";
+                return "Niste dobro uneli text u html foematu!";
             }
             else
             {

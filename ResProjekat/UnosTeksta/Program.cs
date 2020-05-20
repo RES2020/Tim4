@@ -41,6 +41,10 @@ namespace UnosTeksta
             {
                 UnesiteTekst ut = new UnesiteTekst();
                 pt.UnetiTekst = ut.Unos();
+                if (pt.UnetiTekst == "izadji")
+                {
+                    break;
+                }
                 ptt.PrimljenaPoruka = pt.UnetiTekst;
                 string s = "";
                 s = ptt.SaljiKlijentu();
