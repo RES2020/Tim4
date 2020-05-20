@@ -69,6 +69,7 @@ namespace Parser
             if (zatvarajuci[4] != "</title>")
             {
                 b = false;
+
             }
             else if (zatvarajuci[5] != "</head>")
             {
