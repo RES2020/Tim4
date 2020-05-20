@@ -26,12 +26,12 @@ namespace ParserFile
 
 
        public static PrimljeniTekst pt = new PrimljeniTekst();
-       bool n = pt.IspravnostTeskta();
+       bool n = pt.IspravnostTeksta();
 
        public bool ProveriTekst()
         {
             bool b = false;
-            if(pt.IspravnostTeskta())
+            if(pt.IspravnostTeksta())
             {
                 b = true;
             }

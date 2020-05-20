@@ -69,6 +69,7 @@ namespace Parser
             if (zatvarajuci[4] != "</title>")
             {
                 b = false;
+
             }
             else if (zatvarajuci[5] != "</head>")
             {
@@ -85,7 +86,7 @@ namespace Parser
             return b;
         }
 
-        public bool IspravnostTeskta()
+        public bool IspravnostTeksta()
         {
             bool b = false;
 
@@ -93,7 +94,6 @@ namespace Parser
             {
                 b = true;
             }
-           
                 return b;
             
         }
