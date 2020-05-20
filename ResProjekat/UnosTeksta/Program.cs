@@ -15,7 +15,7 @@ namespace UnosTeksta
         public static ProveraFajla pf = new ProveraFajla();
         public static ProslediTekst pt = new ProslediTekst();
         public static PrimljeniTekst ptt = new PrimljeniTekst();
-        public static UpisUFajl uf = new UpisUFajl();
+       // public static UpisUFajl uf = new UpisUFajl();
         private static string povrataPoruka;
 
         public string PovratnaPoruka
@@ -44,7 +44,7 @@ namespace UnosTeksta
             {
                 UnesiteTekst ut = new UnesiteTekst();
                 pt.UnetiTekst = ut.Unos();
-                pf.PrimljenFajl = ut.Unos();
+               // pf.PrimljenFajl = ut.Unos();
                 if (pt.UnetiTekst == "izadji")
                 {
                     break;
