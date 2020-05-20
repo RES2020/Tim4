@@ -28,6 +28,7 @@ namespace Parser
             string s = "";
             if (OtvarajuciTagovi() && ZatvarajuciTagovi())
             {
+                
                 s = "Tekst je unet u odgovarajucem html formatu!";
             }
             else
@@ -82,6 +83,19 @@ namespace Parser
                 b = false;
             }
             return b;
+        }
+
+        public bool IspravnostTeskta()
+        {
+            bool b = false;
+
+            if(OtvarajuciTagovi()&&ZatvarajuciTagovi())
+            {
+                b = true;
+            }
+           
+                return b;
+            
         }
     }
 }
