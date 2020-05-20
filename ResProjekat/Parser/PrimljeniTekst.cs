@@ -25,17 +25,63 @@ namespace Parser
 
         public string SaljiKlijentu()
         {
-            string[] niz=primljenaPoruka.Split(' ');
-
-            if (niz[0] != "<html>")
-
+            string s = "";
+            if (OtvarajuciTagovi() && ZatvarajuciTagovi())
             {
-                return "Niste dobro uneli text u html foematu!";
+                s = "Tekst je unet u odgovarajucem html formatu!";
             }
             else
             {
-                return "Dobro ste uneli poruku!";
+                s = "Tekst nije unet u odgovarajucem html formatu!";
             }
+            return s;
+        }
+
+        public bool OtvarajuciTagovi()
+        {
+            bool b = true;
+            string[] otvarajuci = primljenaPoruka.Split(' ');
+            if (otvarajuci[0] != "<html>")
+            {
+                b=false;
+            }
+            else if (otvarajuci[1] != "<head>")
+            {
+                b = false;
+            }
+            else if (otvarajuci[2] != "<title>")
+            {
+                b = false;
+            }
+            else if (otvarajuci[6] != "<body>")
+            {
+                b = false;
+            }
+            return b;
+        }
+
+
+        public bool ZatvarajuciTagovi()
+        {
+            bool b = true;
+            string[] zatvarajuci = primljenaPoruka.Split(' ');
+            if (zatvarajuci[4] != "</title>")
+            {
+                b = false;
+            }
+            else if (zatvarajuci[5] != "</head>")
+            {
+                b = false;
+            }
+            else if (zatvarajuci[8] != "</body>")
+            {
+                b = false;
+            }
+            else if (zatvarajuci[9] != "</html>")
+            {
+                b = false;
+            }
+            return b;
         }
     }
 }
