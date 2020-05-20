@@ -51,15 +51,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ProjectReference Include="..\ParserFajl\ParserFajl.csproj">
       <Project>{973cfdf7-7182-4b34-a067-6ca33c8383a3}</Project>
       <Name>ParserFajl</Name>
-=======
+    </ProjectReference>
     <ProjectReference Include="..\ParserFile\ParserFile.csproj">
       <Project>{ea6228e4-98dd-48ed-aa08-a2f15605e6be}</Project>
       <Name>ParserFile</Name>
->>>>>>> 1adaeacb5100e3092581839f5a4a4577e7307e37
     </ProjectReference>
     <ProjectReference Include="..\Parser\Parser.csproj">
       <Project>{46edc42b-9e40-4232-95ac-5ef47011635d}</Project>
