@@ -21,6 +21,7 @@ namespace ParserFajl
         {
         }
         public static PrimljeniTekst pt = new PrimljeniTekst();
+
         public bool ProverenTekst()
         {
             bool b = false;

@@ -86,7 +86,7 @@ namespace Parser
             return b;
         }
 
-        public bool IspravnostTeskta()
+        public bool IspravnostTeksta()
         {
             bool b = false;
 
@@ -94,7 +94,6 @@ namespace Parser
             {
                 b = true;
             }
-           
                 return b;
             
         }
