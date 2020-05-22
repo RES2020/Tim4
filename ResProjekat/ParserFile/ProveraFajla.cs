@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Parser;
 
 namespace ParserFile
 {
     public class ProveraFajla
     {
+        public bool Isfile { get; set; }
         private string primljenFajl;
 
         public string PrimljenFajl
@@ -16,20 +19,44 @@ namespace ParserFile
             set { primljenFajl = value; }
         }
 
+        public string fajl { get; set; }
+
         public ProveraFajla()
         {
         }
 
-        /*
-        public bool ProveraPutanjeFajla
+        
+        public bool ProveraPutanjeFajla()
         {
-
+            bool b = false;
+            string putanja = primljenFajl.Split(' ')[0];
+            var files = Directory.GetFiles(putanja);
+            foreach (var file in files)
+            {
+                if (Path.GetFileName(file) == fajl)
+                {
+                    b = true;
+                    break;
+                }
+                else
+                {
+                    b = false;
+                    break;
+                }
+            }
+            return b;
         }
-
-        public bool ProveraSadrzajaFajla()
+        public void Odgovorparserfile()
         {
-
+            if (ProveraPutanjeFajla())
+            {
+                Console.WriteLine("*****PROVERENA PUTANJA FAJLA*****\nFAJL POSTOJI!");
+            }
+            else
+            {
+                Console.WriteLine("*****PROVERENA PUTANJA FAJLA *****\nFAJL NE POSTOJI!");
+            }
         }
-        */
+        
     }
 }

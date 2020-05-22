@@ -16,6 +16,7 @@ namespace Parser
             get { return primljenaPoruka; }
             set { primljenaPoruka = value; }
         }
+        
 
 
         public PrimljeniTekst()
