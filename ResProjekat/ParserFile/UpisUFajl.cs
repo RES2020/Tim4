@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Parser;
 
+
 namespace ParserFile
 {
     public class UpisUFajl
@@ -22,6 +23,7 @@ namespace ParserFile
 
         public UpisUFajl()
         {
+            
         }
 
 
