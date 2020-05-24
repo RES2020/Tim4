@@ -30,10 +30,18 @@ namespace UnosTeksta
 
                 pf.PrimljenFajl = s;//saljemo ekstenziju fajla parseru da proveri tekst da li je ispravna!
 
-
                 if (!ut.FileOrText)//Nakon izbora(tekst ili file), ako smo izabrali tekst da unesemo necemo napraviti string "UnetiFajl" jer je on namenjen za proveru fajla da bi izdvojili naziv fajla.
                 {
-                    UnetiFajl = s.Split(' ')[1];//Ovde uzimamo naziv fajla.
+                    try
+                    {
+
+                        UnetiFajl = s.Split(' ')[1];//Ovde uzimamo naziv fajla.
+                    }
+                    catch
+                    {
+                        //pf.fajl = "jgjfjh";
+                        Console.WriteLine("Greska!\n");
+                    }
                 }
 
 

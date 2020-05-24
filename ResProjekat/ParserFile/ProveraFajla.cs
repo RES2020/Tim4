@@ -28,21 +28,33 @@ namespace ParserFile
         
         public bool ProveraPutanjeFajla()
         {
+           
             bool b = false;
-            string putanja = primljenFajl.Split(' ')[0];
-            var files = Directory.GetFiles(putanja);
-            foreach (var file in files)
+            try
             {
-                if (Path.GetFileName(file) == fajl)
+
+
+                string putanja = primljenFajl.Split(' ')[0];
+
+                var files = Directory.GetFiles(putanja);
+                foreach (var file in files)
                 {
-                    b = true;
-                    break;
+                    if (Path.GetFileName(file) == fajl)
+                    {
+                        b = true;
+                        break;
+                    }
+                    else
+                    {
+                        b = false;
+                        break;
+                    }
                 }
-                else
-                {
-                    b = false;
-                    break;
-                }
+            }
+            catch
+            {
+               b = false;
+                return b;
             }
             return b;
         }
@@ -50,11 +62,11 @@ namespace ParserFile
         {
             if (ProveraPutanjeFajla())
             {
-                Console.WriteLine("*****PROVERENA PUTANJA FAJLA*****\nFAJL POSTOJI!");
+                Console.WriteLine("*****PROVERENA PUTANJA FAJLA*****\nFAJL POSTOJI!\n");
             }
             else
             {
-                Console.WriteLine("*****PROVERENA PUTANJA FAJLA *****\nFAJL NE POSTOJI!");
+                Console.WriteLine("*****PROVERENA PUTANJA FAJLA *****\nFAJL NE POSTOJI!\n");
             }
         }
         
