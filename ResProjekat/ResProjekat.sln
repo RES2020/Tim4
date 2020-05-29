@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserFile", "ParserFile\ParserFile.csproj", "{EA6228E4-98DD-48ED-AA08-A2F15605E6BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BazaPodataka", "BazaPodataka", "{5822CE3D-E913-4A72-9615-3364ECA3733D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIControler", "UIControler\UIControler.csproj", "{BE98FD69-A21E-4987-9D71-46DD1597105B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "virtualui", "virtualui\virtualui.csproj", "{08A6323E-456F-413B-93D3-A8478A50676D}"
@@ -32,8 +30,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{9CB3220A-9E56-4907-8E44-CB7A9DA37D4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{F005DAEA-2878-4EC9-845A-D6020975555E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{76938262-9EDC-481B-86F5-3E850C057BE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,10 +69,6 @@ Global
 		{F005DAEA-2878-4EC9-845A-D6020975555E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F005DAEA-2878-4EC9-845A-D6020975555E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F005DAEA-2878-4EC9-845A-D6020975555E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76938262-9EDC-481B-86F5-3E850C057BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76938262-9EDC-481B-86F5-3E850C057BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76938262-9EDC-481B-86F5-3E850C057BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76938262-9EDC-481B-86F5-3E850C057BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,7 +82,6 @@ Global
 		{BE98FD69-A21E-4987-9D71-46DD1597105B} = {802BBFCB-39D6-46CB-9D6B-65605AA634A3}
 		{08A6323E-456F-413B-93D3-A8478A50676D} = {38AC1416-BF10-4D5A-BF61-EF05E281919D}
 		{F005DAEA-2878-4EC9-845A-D6020975555E} = {9CB3220A-9E56-4907-8E44-CB7A9DA37D4F}
-		{76938262-9EDC-481B-86F5-3E850C057BE6} = {5822CE3D-E913-4A72-9615-3364ECA3733D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE516B15-00B3-4B7B-9E38-657267E48462}

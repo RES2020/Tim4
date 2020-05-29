@@ -9,6 +9,8 @@ using Parser;
 using ParserFile;
 using System.IO;
 using Common;
+using System.Configuration;
+
 
 namespace UnosTeksta
 {
@@ -21,11 +23,14 @@ namespace UnosTeksta
         public static IUnesiteTekst ut=utt;
         public static UpisUFajl uf = new UpisUFajl();
         public static string UnetiFajl = "";
+        public static string connectionString;
 
         static void Main(string[] args)
         {
+            connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             do
             {
+            
                 String s = ut.Unos();
                 //pt.UnetiTekst = ut.Unos();//saljemo tekst ili fajl u klasu prosledi tekst.
                 uf.PrimljeniTekst = s;
@@ -63,7 +68,7 @@ namespace UnosTeksta
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
-                    uf.UpisiUFajl(s);
+                    uf.UpisiUFajl(s,connectionString);
 
                 }
                 else
