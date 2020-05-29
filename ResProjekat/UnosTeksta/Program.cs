@@ -23,11 +23,12 @@ namespace UnosTeksta
         public static IUnesiteTekst ut=utt;
         public static UpisUFajl uf = new UpisUFajl();
         public static string UnetiFajl = "";
-        public static string connectionString;
+
+        
 
         static void Main(string[] args)
         {
-            connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
+            UpisUFajl.connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             do
             {
             
@@ -68,7 +69,7 @@ namespace UnosTeksta
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
-                    uf.UpisiUFajl(s,connectionString);
+                    uf.UpisiUFajl(s);
 
                 }
                 else
