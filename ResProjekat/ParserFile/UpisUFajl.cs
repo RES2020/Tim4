@@ -71,9 +71,7 @@ namespace ParserFile
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand cmd = connection.CreateCommand())
             {
-
                 connection.Open();
-
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into Fajl values('" + name + "','" + putanja + "')";
                 cmd.ExecuteNonQuery();
