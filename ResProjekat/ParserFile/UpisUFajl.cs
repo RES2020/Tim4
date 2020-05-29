@@ -37,7 +37,6 @@ namespace ParserFile
         {
             pt.PrimljenaPoruka = s;
             string putanja = Environment.CurrentDirectory + "/" + "test.html";
-            string putt = "asfgsag";
                 if (ProveriTekst())
                 {
                 FileStream stream = new FileStream(putanja, FileMode.Create);
