@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace UnosTeksta
 {
 
 
-    public class UnesiteTekst
+    public class UnesiteTekst:IUnesiteTekst
     {
         private bool fileOrText;
 

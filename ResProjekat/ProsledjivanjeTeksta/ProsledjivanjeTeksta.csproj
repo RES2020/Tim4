@@ -44,11 +44,5 @@
     <Compile Include="ProslediTekst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Modeli\Modeli.csproj">
-      <Project>{0bbf3e5b-e48d-4e04-894e-d648ffbe9dfd}</Project>
-      <Name>Modeli</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

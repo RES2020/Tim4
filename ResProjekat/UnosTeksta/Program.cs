@@ -8,6 +8,7 @@ using ProsledjivanjeTeksta;
 using Parser;
 using ParserFile;
 using System.IO;
+using Common;
 
 namespace UnosTeksta
 {
@@ -16,7 +17,8 @@ namespace UnosTeksta
         public static ProslediTekst pt = new ProslediTekst();
         public static PrimljeniTekst ptt = new PrimljeniTekst();
         public static ProveraFajla pf = new ProveraFajla();
-        public static UnesiteTekst ut = new UnesiteTekst();
+        public static UnesiteTekst utt = new UnesiteTekst();
+        public static IUnesiteTekst ut=utt;
         public static UpisUFajl uf = new UpisUFajl();
         public static string UnetiFajl = "";
 

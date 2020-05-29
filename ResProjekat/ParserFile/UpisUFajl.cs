@@ -15,6 +15,9 @@ namespace ParserFile
     public class UpisUFajl
     {
 
+        public static SqlConnection connection;
+        public static string connectionString;
+
         public static PrimljeniTekst pt = new PrimljeniTekst();
 
         private string primljeniTekst;
@@ -34,12 +37,14 @@ namespace ParserFile
         {
             pt.PrimljenaPoruka = s;
             string putanja = Environment.CurrentDirectory + "/" + "test.html";
+            string putt = "asfgsag";
                 if (ProveriTekst())
                 {
                 FileStream stream = new FileStream(putanja, FileMode.Create);
                 StreamWriter sw = new StreamWriter(stream);
                 sw.WriteLine(s);
                 Console.WriteLine("Uneti tekst je uspesno upisan u fajl!\n");
+                UpisiUBazu("test.html", putanja);
                 sw.Close();
                 stream.Close();
 
@@ -60,7 +65,19 @@ namespace ParserFile
             }
             return b;
         }
-        
+
+
+        public static void UpisiUBazu(string name, string putanja)
+        {
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Milenko\Documents\Tim4\ResProjekat\DataBase\Baza.mdf;Integrated Security=True");
+            connection.Open();
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert into Fajl values('" + name + "','" + putanja + "')";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
 
 
 

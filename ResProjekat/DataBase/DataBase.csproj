@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92B9CAB4-4FC0-4847-B167-4627CDDA811C}</ProjectGuid>
+    <ProjectGuid>{76938262-9EDC-481B-86F5-3E850C057BE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataBase</RootNamespace>
@@ -60,12 +60,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fajlovi.mdf">
+    <Content Include="Baza.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Fajlovi_log.ldf">
+    <Content Include="Baza_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Fajlovi.mdf</DependentUpon>
+      <DependentUpon>Baza.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +79,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
