@@ -34,7 +34,7 @@ namespace UnosTeksta
             
                 String s = ut.Unos();
                 //pt.UnetiTekst = ut.Unos();//saljemo tekst ili fajl u klasu prosledi tekst.
-                uf.PrimljeniTekst = s;
+                
 
                 pf.PrimljenFajl = s;//saljemo ekstenziju fajla parseru da proveri tekst da li je ispravna!
 
@@ -60,8 +60,15 @@ namespace UnosTeksta
                     break;
                 }
 
-
-                ptt.PrimljenaPoruka = s;//saljemo tekst na proveru!
+                try
+                {
+                    ptt.PrimljenaPoruka = s.Split(' ')[0];//saljemo tekst na proveru!
+                }
+                catch
+                {
+                    Console.WriteLine("Greska!");
+                }
+                ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
 
                 string ss = "";
                 ss = ptt.SaljiKlijentu();//primamo proveru od parsera.
@@ -69,7 +76,16 @@ namespace UnosTeksta
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
-                    uf.UpisiUFajl(s);
+                    try
+                    {
+                        uf.PrimljeniTekst = s.Split(';')[1];
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Greska!\n");
+
+                    }
+                    uf.UpisiUFajl(s.Split(';')[0]);
 
                 }
                 else

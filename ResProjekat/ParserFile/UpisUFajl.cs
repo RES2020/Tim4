@@ -28,6 +28,8 @@ namespace ParserFile
             set { primljeniTekst = value; }
         }
 
+
+
         public UpisUFajl()
         {
         }
@@ -36,14 +38,14 @@ namespace ParserFile
         public void UpisiUFajl(string s)
         {
             pt.PrimljenaPoruka = s;
-            string putanja = Environment.CurrentDirectory + "/" + "test.html";
+            string putanja = Environment.CurrentDirectory + "/" + primljeniTekst+".html";
                 if (ProveriTekst())
                 {
                 FileStream stream = new FileStream(putanja, FileMode.Create);
                 StreamWriter sw = new StreamWriter(stream);
                 sw.WriteLine(s);
                 Console.WriteLine("Uneti tekst je uspesno upisan u fajl!\n");
-                UpisiUBazu("test.html", putanja);
+                UpisiUBazu(primljeniTekst, putanja);
                 sw.Close();
                 stream.Close();
 
@@ -68,20 +70,16 @@ namespace ParserFile
 
         public static void UpisiUBazu(string name, string putanja)
         {
+            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
             using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd = connection.CreateCommand())
+                using(SqlCommand cmd = new SqlCommand(query,connection))
             {
                 connection.Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Fajl values('" + name + "','" + putanja + "')";
+                cmd.Parameters.AddWithValue("@Ime", name);
+                cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
                 cmd.ExecuteNonQuery();
-                connection.Close();
             }
+
         }
-
-
-
-
-
     }
 }
