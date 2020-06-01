@@ -42,7 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IUnesiteTekst.cs" />
+    <Compile Include="KolekcijaFajlovaIzBaze.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParserFile\ParserFile.csproj">
+      <Project>{ea6228e4-98dd-48ed-aa08-a2f15605e6be}</Project>
+      <Name>ParserFile</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

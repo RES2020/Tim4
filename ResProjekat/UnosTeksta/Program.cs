@@ -10,6 +10,7 @@ using ParserFile;
 using System.IO;
 using Common;
 using System.Configuration;
+using virtualui;
 
 
 namespace UnosTeksta
@@ -21,7 +22,9 @@ namespace UnosTeksta
         public static ProveraFajla pf = new ProveraFajla();
         public static UnesiteTekst utt = new UnesiteTekst();
         public static IUnesiteTekst ut=utt;
+        public static VirtualUI ui = new VirtualUI();
         public static UpisUFajl uf = new UpisUFajl();
+
         public static string UnetiFajl = "";
 
         
@@ -29,6 +32,7 @@ namespace UnosTeksta
         static void Main(string[] args)
         {
             UpisUFajl.connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
+            VirtualUI.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             do
             {
             
@@ -43,7 +47,7 @@ namespace UnosTeksta
                     try
                     {
 
-                        UnetiFajl = s.Split(' ')[1];//Ovde uzimamo naziv fajla.
+                        UnetiFajl = s.Split(';')[1];//Ovde uzimamo naziv fajla.
                     }
                     catch
                     {
@@ -62,23 +66,37 @@ namespace UnosTeksta
 
                 try
                 {
-                    ptt.PrimljenaPoruka = s.Split(' ')[0];//saljemo tekst na proveru!
+                    ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
                 }
                 catch
                 {
                     Console.WriteLine("Greska!");
                 }
+
+                try
+                {
+                    ui.PrimljeniFajl = s.Split(';')[1];
+                }
+                catch
+                {
+                    Console.WriteLine("Greska!");
+
+                }
+
                 ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
 
                 string ss = "";
                 ss = ptt.SaljiKlijentu();//primamo proveru od parsera.
+
+
+
 
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
                     try
                     {
-                        uf.PrimljeniTekst = s.Split(';')[1];
+                        uf.PrimljeniTekst = s.Split(';')[1].Trim();
                     }
                     catch
                     {
@@ -86,6 +104,16 @@ namespace UnosTeksta
 
                     }
                     uf.UpisiUFajl(s.Split(';')[0]);
+                    bool b = false;
+                    b = ui.DaLiJeIstiFajl();
+                    if (b)
+                    {
+                        Console.WriteLine("Fajlovi su isti!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fajlovi nisu isti!");
+                    }
 
                 }
                 else

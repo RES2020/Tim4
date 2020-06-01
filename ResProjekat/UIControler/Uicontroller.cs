@@ -13,6 +13,7 @@ namespace UIControler
 
         public static ProveraFajla pf = new ProveraFajla();
         public static VirtualUI vui = new VirtualUI();
+        
         private string primljeniFajl;
 
         public string PrimljeniFajl
