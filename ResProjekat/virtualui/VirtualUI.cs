@@ -52,16 +52,65 @@ namespace virtualui
                     return b;
                 }
             }
-                return b;
+            string putanja = Environment.CurrentDirectory + "/" + primljeniFajl + ".html";
+            UpisiUTabeluFajl(primljeniFajl, putanja);
+            UpisiUTabeluSadrzaj(putanja);
+            return b;
         }
 
         public string ProveraPromene()
         {
+
             return "";
         }
         public string SaljiUiControlleru()
         {
             return "";
+        }
+
+
+
+        public static void UpisiUTabeluFajl(string name, string putanja)
+        {
+            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Ime", name);
+                cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public static void UpisiUTabeluSadrzaj(string putanja)
+        {
+            List<string> stringovi = File.ReadLines(putanja).ToList();
+            string s = Convert.ToString(stringovi);
+                string query = "INSERT INTO SadrzajFajla VALUES (@Sadrzaj)";
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    cmd.Parameters.AddWithValue("@Sadrzaj", s);
+                    cmd.ExecuteNonQuery();
+                }
+
+        }
+
+
+        public static void PopuniTabeluFajlInicijalno()
+        {
+            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Ime", "fajl1");
+                cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

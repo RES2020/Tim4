@@ -45,7 +45,7 @@ namespace ParserFile
                 StreamWriter sw = new StreamWriter(stream);
                 sw.WriteLine(s);
                 Console.WriteLine("Uneti tekst je uspesno upisan u fajl!\n");
-                UpisiUBazu(primljeniTekst, putanja);
+                //UpisiUBazu(primljeniTekst, putanja);
                 sw.Close();
                 stream.Close();
 
@@ -67,7 +67,7 @@ namespace ParserFile
             return b;
         }
 
-
+/*
         public static void UpisiUBazu(string name, string putanja)
         {
             string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
@@ -81,5 +81,19 @@ namespace ParserFile
             }
 
         }
+
+        public static void PopuniBazuAutomatski()
+        {
+            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Ime", "fajl1");
+                cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
+                cmd.ExecuteNonQuery();
+            }
+        }
+        */
     }
 }

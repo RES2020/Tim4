@@ -26,6 +26,7 @@ namespace UnosTeksta
         public static UpisUFajl uf = new UpisUFajl();
 
         public static string UnetiFajl = "";
+        
 
         
 
@@ -33,9 +34,10 @@ namespace UnosTeksta
         {
             UpisUFajl.connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             VirtualUI.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
+            VirtualUI.PopuniTabeluFajlInicijalno();
             do
             {
-            
+
                 String s = ut.Unos();
                 //pt.UnetiTekst = ut.Unos();//saljemo tekst ili fajl u klasu prosledi tekst.
                 
@@ -108,11 +110,12 @@ namespace UnosTeksta
                     b = ui.DaLiJeIstiFajl();
                     if (b)
                     {
-                        Console.WriteLine("Fajlovi su isti!");
+                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!\n");
+
                     }
                     else
                     {
-                        Console.WriteLine("Fajlovi nisu isti!");
+                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu fajl i u tabelu sadrzaj fahla!\n");
                     }
 
                 }
