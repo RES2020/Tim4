@@ -17,7 +17,7 @@ namespace virtualui
         List<KolekcijaFajlovaIzBaze> kolekcija = KolekcijaFajlovaIzBaze.Kolekcija;
         private string primljeniFajl;
 
-        public string PrimljeniFajl
+        public  string PrimljeniFajl
         {
             get { return primljeniFajl; }
             set { primljeniFajl = value; }
@@ -54,7 +54,7 @@ namespace virtualui
             }
             string putanja = Environment.CurrentDirectory + "/" + primljeniFajl + ".html";
             UpisiUTabeluFajl(primljeniFajl, putanja);
-            UpisiUTabeluSadrzaj(putanja);
+            UpisiUTabeluSadrzaj(putanja,primljeniFajl);
             return b;
         }
 
@@ -84,15 +84,35 @@ namespace virtualui
 
         }
 
-        public static void UpisiUTabeluSadrzaj(string putanja)
+        public static void UpisiUTabeluSadrzaj(string putanja,string primljeniFajl)
         {
             List<string> stringovi = File.ReadLines(putanja).ToList();
-            string s = Convert.ToString(stringovi);
-                string query = "INSERT INTO SadrzajFajla VALUES (@Sadrzaj)";
+            string s="";
+            int id=0;
+            foreach(var item in stringovi)
+            {
+                s += item;
+            }
+
+
+            string query2 = "SELECT Id FROM Fajl where Naziv='"+primljeniFajl+"'";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+            {
+                DataTable tabela = new DataTable();
+                adapter.Fill(tabela);
+                id = int.Parse(tabela.Rows[0]["Id"].ToString());
+
+            }
+
+
+                string query = "INSERT INTO SadrzajFajla VALUES (@Id,@Sadrzaj)";
                 using (connection = new SqlConnection(connectionString))
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     connection.Open();
+                    cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@Sadrzaj", s);
                     cmd.ExecuteNonQuery();
                 }
@@ -102,14 +122,33 @@ namespace virtualui
 
         public static void PopuniTabeluFajlInicijalno()
         {
-            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
+
+
+            string query2 = "SELECT * FROM Fajl";
             using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, connection))
+            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
             {
-                connection.Open();
-                cmd.Parameters.AddWithValue("@Ime", "fajl1");
-                cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
-                cmd.ExecuteNonQuery();
+                DataTable tabela = new DataTable();
+                adapter.Fill(tabela);
+                if (tabela.Rows.Count == 0)
+                {
+
+                    string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
+                    using (connection = new SqlConnection(connectionString))
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        cmd.Parameters.AddWithValue("@Ime", "fajl1");
+                        cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    //Ne radi nista!
+                }
+
             }
         }
     }

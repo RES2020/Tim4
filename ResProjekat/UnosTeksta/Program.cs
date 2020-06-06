@@ -115,7 +115,7 @@ namespace UnosTeksta
                     }
                     else
                     {
-                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu fajl i u tabelu sadrzaj fahla!\n");
+                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
                     }
 
                 }
