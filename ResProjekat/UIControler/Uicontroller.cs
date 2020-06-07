@@ -28,14 +28,28 @@ namespace UIControler
             vui.PrimljeniFajl = primljeniFajl;
         }
 
-        public string FajlOdVirtualUiKomponente()
+
+        public string NazivFajlaOdVirtualUiKomponente()
         {
-            return "";
+            return vui.SaljiUiControlleruNazivFajla();
         }
 
-        public string SaljiUiKomponenti()
+        public string SadrzajFajlaOdVirtualUiKomponente()
         {
-            return "";
+            string s = vui.SaljiUiControlleruSadrzajFajla();
+            return s;
+        }
+
+        public string SaljiUiKomponentiNazivFajla()
+        {
+            string s = NazivFajlaOdVirtualUiKomponente();
+            return s;
+        }
+
+        public string SaljiUiKomponentiSadrzajFajla()
+        {
+            string s = SadrzajFajlaOdVirtualUiKomponente();
+            return s;
         }
     }
 }

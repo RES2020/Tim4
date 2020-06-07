@@ -11,6 +11,7 @@ using System.IO;
 using Common;
 using System.Configuration;
 using virtualui;
+using UIControler;
 
 
 namespace UnosTeksta
@@ -24,6 +25,7 @@ namespace UnosTeksta
         public static IUnesiteTekst ut=utt;
         public static VirtualUI ui = new VirtualUI();
         public static UpisUFajl uf = new UpisUFajl();
+        public static Uicontroller uc = new Uicontroller();
 
         public static string UnetiFajl = "";
         
@@ -86,6 +88,7 @@ namespace UnosTeksta
                 }
 
                 ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
+                ui.Sadrzaj = ptt.PrimljenaPoruka;
 
                 string ss = "";
                 ss = ptt.SaljiKlijentu();//primamo proveru od parsera.
@@ -103,11 +106,14 @@ namespace UnosTeksta
                     catch
                     {
                         Console.WriteLine("Greska!\n");
-
                     }
+
+
                     uf.UpisiUFajl(s.Split(';')[0]);
                     bool b = false;
                     b = ui.DaLiJeIstiFajl();
+
+
                     if (b)
                     {
                         Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!\n");
@@ -117,6 +123,20 @@ namespace UnosTeksta
                     {
                         Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
                     }
+
+
+
+                    bool bb = ui.ProveraPromene(ptt.PrimljenaPoruka);
+                    if (bb)
+                    {
+                        Console.WriteLine("Isti su\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nisu isti\n");
+                    }
+                    Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
+                    Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
 
                 }
                 else

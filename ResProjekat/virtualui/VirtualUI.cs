@@ -15,6 +15,8 @@ namespace virtualui
         public static SqlConnection connection;
         public SqlCommand cmd;
         List<KolekcijaFajlovaIzBaze> kolekcija = KolekcijaFajlovaIzBaze.Kolekcija;
+
+
         private string primljeniFajl;
 
         public  string PrimljeniFajl
@@ -23,8 +25,27 @@ namespace virtualui
             set { primljeniFajl = value; }
         }
 
+        private string sadrzaj;
+
+        public string Sadrzaj
+        {
+            get { return sadrzaj; }
+            set { sadrzaj = value; }
+        }
+
+        
+
         public VirtualUI()
         {
+        }
+
+        public VirtualUI(SqlCommand cmd, List<KolekcijaFajlovaIzBaze> kolekcija, string primljeniFajl, string sadrzaj)
+        {
+            this.cmd = cmd;
+            this.kolekcija = kolekcija;
+            this.primljeniFajl = primljeniFajl;
+            this.sadrzaj = sadrzaj;
+            
         }
 
         public bool DaLiJeIstiFajl()
@@ -58,14 +79,57 @@ namespace virtualui
             return b;
         }
 
-        public string ProveraPromene()
-        {
 
-            return "";
-        }
-        public string SaljiUiControlleru()
+
+        public bool ProveraPromene(string s)
         {
-            return "";
+            int id = VratiId();
+            string sadrzaj = "";
+            bool b = false;
+            string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdFajla='" + id + "'";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+            {
+                DataTable tabela = new DataTable();
+                adapter.Fill(tabela);
+                sadrzaj = tabela.Rows[0]["Sadrzaj"].ToString();
+            }
+            if (sadrzaj == s)
+            {
+                b = true;
+            }
+            return b;
+        }
+
+
+
+        public string SaljiUiControlleruNazivFajla()
+        {
+            return primljeniFajl;
+        }
+
+        public string SaljiUiControlleruSadrzajFajla()
+        {
+            return sadrzaj;
+        }
+
+
+
+        public int VratiId()
+        {
+            int id = 0;
+            string query2 = "SELECT Id FROM Fajl where Naziv='" + primljeniFajl + "'";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+            {
+                DataTable tabela = new DataTable();
+                adapter.Fill(tabela);
+                id = int.Parse(tabela.Rows[0]["Id"].ToString());
+
+            }
+            return id;
         }
 
 
