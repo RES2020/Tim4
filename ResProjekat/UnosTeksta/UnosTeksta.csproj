@@ -114,6 +114,10 @@
       <Project>{19015534-6c7c-4b3b-b8ec-1b781c0bad53}</Project>
       <Name>ProsledjivanjeTeksta</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UIControler\UIControler.csproj">
+      <Project>{be98fd69-a21e-4987-9d71-46dd1597105b}</Project>
+      <Name>UIControler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\virtualui\virtualui.csproj">
       <Project>{08a6323e-456f-413b-93d3-a8478a50676d}</Project>
       <Name>virtualui</Name>
