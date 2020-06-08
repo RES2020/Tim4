@@ -125,12 +125,12 @@ namespace UnosTeksta
 
                     if (b)
                     {
-                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!\n");
+                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!!\n");
 
                     }
                     else
                     {
-                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!!\n");
                     }
 
 
