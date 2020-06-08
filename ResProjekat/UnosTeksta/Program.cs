@@ -138,11 +138,11 @@ namespace UnosTeksta
                     bool bb = ui.ProveraPromene(ptt.PrimljenaPoruka);
                     if (bb)
                     {
-                        Console.WriteLine("Isti su\n");
+                        Console.WriteLine("Isti su!\n");
                     }
                     else
                     {
-                        Console.WriteLine("Nisu isti\n");
+                        Console.WriteLine("Nisu isti!\n");
                     }
                     Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
                     Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
