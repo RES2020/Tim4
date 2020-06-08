@@ -91,9 +91,16 @@ namespace virtualui
             using (SqlCommand cmd2 = new SqlCommand(query2, connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
             {
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                sadrzaj = tabela.Rows[0]["Sadrzaj"].ToString();
+                try
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+                    sadrzaj = tabela.Rows[0]["Sadrzaj"].ToString();
+                }
+                catch
+                {
+                    b = false;
+                }
             }
             if (sadrzaj == s)
             {
@@ -140,35 +147,44 @@ namespace virtualui
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
-                connection.Open();
-                cmd.Parameters.AddWithValue("@Ime", name);
-                cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+                    cmd.Parameters.AddWithValue("@Ime", name);
+                    cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
+                    cmd.ExecuteNonQuery();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             }
 
         }
 
         public static void UpisiUTabeluSadrzaj(string putanja,string primljeniFajl)
         {
-            List<string> stringovi = File.ReadLines(putanja).ToList();
-            string s="";
-            int id=0;
-            foreach(var item in stringovi)
+            try
             {
-                s += item;
-            }
+                List<string> stringovi = File.ReadLines(putanja).ToList();
+                string s = "";
+                int id = 0;
+                foreach (var item in stringovi)
+                {
+                    s += item;
+                }
 
 
-            string query2 = "SELECT Id FROM Fajl where Naziv='"+primljeniFajl+"'";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
-            {
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                id = int.Parse(tabela.Rows[0]["Id"].ToString());
+                string query2 = "SELECT Id FROM Fajl where Naziv='" + primljeniFajl + "'";
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+                    id = int.Parse(tabela.Rows[0]["Id"].ToString());
 
-            }
+                }
 
 
                 string query = "INSERT INTO SadrzajFajla VALUES (@Id,@Sadrzaj)";
@@ -180,7 +196,11 @@ namespace virtualui
                     cmd.Parameters.AddWithValue("@Sadrzaj", s);
                     cmd.ExecuteNonQuery();
                 }
-
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
 

@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UnosTeksta\UnosTeksta.csproj">
+      <Project>{5de5c35b-4bd4-456c-acd6-41753ac6acbb}</Project>
+      <Name>UnosTeksta</Name>
+    </ProjectReference>
     <ProjectReference Include="..\virtualui\virtualui.csproj">
       <Project>{08a6323e-456f-413b-93d3-a8478a50676d}</Project>
       <Name>virtualui</Name>

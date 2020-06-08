@@ -66,34 +66,5 @@ namespace ParserFile
             }
             return b;
         }
-
-/*
-        public static void UpisiUBazu(string name, string putanja)
-        {
-            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
-            using (connection = new SqlConnection(connectionString))
-                using(SqlCommand cmd = new SqlCommand(query,connection))
-            {
-                connection.Open();
-                cmd.Parameters.AddWithValue("@Ime", name);
-                cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
-                cmd.ExecuteNonQuery();
-            }
-
-        }
-
-        public static void PopuniBazuAutomatski()
-        {
-            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, connection))
-            {
-                connection.Open();
-                cmd.Parameters.AddWithValue("@Ime", "fajl1");
-                cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
-                cmd.ExecuteNonQuery();
-            }
-        }
-        */
     }
 }

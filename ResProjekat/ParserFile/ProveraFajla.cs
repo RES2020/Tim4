@@ -19,7 +19,14 @@ namespace ParserFile
             set { primljenFajl = value; }
         }
 
-        public string fajl { get; set; }
+        private string fajl;
+
+        public string Fajl
+        {
+            get { return fajl; }
+            set { fajl = value; }
+        }
+
 
         public ProveraFajla()
         {

@@ -41,8 +41,18 @@ namespace UnosTeksta
             {
 
                 String s = ut.Unos();
+                if (s == "")
+                {
+                    Console.WriteLine(">>Unesite ponovo!\n");
+                    continue;
+                }
+
+                if (s == "izadji")//Ako smo uneli izadji, prekidamo rad programa!
+                {
+                    break;
+                }
                 //pt.UnetiTekst = ut.Unos();//saljemo tekst ili fajl u klasu prosledi tekst.
-                
+
 
                 pf.PrimljenFajl = s;//saljemo ekstenziju fajla parseru da proveri tekst da li je ispravna!
 
@@ -56,17 +66,12 @@ namespace UnosTeksta
                     catch
                     {
                         //pf.fajl = "jgjfjh";
-                        Console.WriteLine("Greska!\n");
+                       // Console.WriteLine("Greska!\n");
                     }
                 }
 
 
-                pf.fajl = UnetiFajl;//Ovde saljemo naziv fajla parserfajlu koji smo uneli radi provere da li postoji!
-
-                if (s == "izadji")//Ako smo uneli izadji, prekidamo rad programa!
-                {
-                    break;
-                }
+              //  pf.Fajl = UnetiFajl;//Ovde saljemo naziv fajla parserfajlu koji smo uneli radi provere da li postoji!
 
                 try
                 {
@@ -74,7 +79,7 @@ namespace UnosTeksta
                 }
                 catch
                 {
-                    Console.WriteLine("Greska!");
+                  //  Console.WriteLine("Greska!");
                 }
 
                 try
@@ -83,7 +88,7 @@ namespace UnosTeksta
                 }
                 catch
                 {
-                    Console.WriteLine("Greska!");
+                   // Console.WriteLine("Greska!");
 
                 }
 
@@ -99,13 +104,17 @@ namespace UnosTeksta
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
+                    if (ss == "NOT OK")
+                    {
+                        continue;
+                    }
                     try
                     {
                         uf.PrimljeniTekst = s.Split(';')[1].Trim();
                     }
                     catch
                     {
-                        Console.WriteLine("Greska!\n");
+                        //Console.WriteLine("Greska!\n");
                     }
 
 
@@ -141,7 +150,24 @@ namespace UnosTeksta
                 }
                 else
                 {
+
+                    pf.Fajl = s.Split(' ')[1];
+                    ui.PrimljeniFajl = s.Split(' ')[1].Split('.')[0];
                     pf.Odgovorparserfile();
+
+                    bool b = false;
+                    b = ui.DaLiJeIstiFajl();
+
+
+                    if (b)
+                    {
+                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!\n");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                    }
                 }
 
             } while (pt.UnetiTekst != "izadji");

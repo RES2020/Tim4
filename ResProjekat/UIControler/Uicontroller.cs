@@ -24,7 +24,7 @@ namespace UIControler
 
         public Uicontroller()
         {
-            primljeniFajl = pf.fajl;
+            primljeniFajl = pf.Fajl;
             vui.PrimljeniFajl = primljeniFajl;
         }
 
