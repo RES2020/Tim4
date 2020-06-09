@@ -126,7 +126,21 @@ namespace UnosTeksta
 
                     //Upisujemo tekst koji je korisnik uneo
                     //Splitujemo po ; i uzimamo sa prvog mesta tekst, a na drugom mestu je naziv fajla
-                    uf.UpisiUFajl(s.Split(';')[0]);
+                    try
+                    {
+                        if (uf.UpisiUFajl(s.Split(';')[0]))
+                        {
+
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
 
                     //Ovde proveravamo da li su fajlovi isti
                     bool b = false;
@@ -176,7 +190,7 @@ namespace UnosTeksta
                     {
                         Console.WriteLine("Nazivi fajlova su isti!\nFajl nije upisan u bazu podataka!\n");
                         Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
-                        Console.WriteLine("Sadrzaj fajla: " + ui.Sadrzaj);
+                        Console.WriteLine("Ekstenzija: " + ui.Sadrzaj);
 
                     }
                     else

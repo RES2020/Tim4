@@ -37,17 +37,29 @@ namespace Parser
             {
                 s = "Tekst nije unet u ispravnom html formatu!\n";
             }
-            return s;
+                return s;
+        }
+
+        public bool ProveraBody()
+        {
+            bool b = true ;
+            Regex regex = new Regex(@"\s*");
+            string[] otvarajuci = primljenaPoruka.Split(' ');
+            if (!regex.IsMatch(otvarajuci[7]))
+            {
+                b = false;
+            }
+            return b;
         }
 
         public bool OtvarajuciTagovi()
         {
             bool b = true;
-            Regex regex = new Regex(@"\s*(?<word>\w+)\s+");
-
             try
             {
+                
                 string[] otvarajuci = primljenaPoruka.Split(' ');
+
                 if (otvarajuci[0] != "<html>")
                 {
                     b = false;

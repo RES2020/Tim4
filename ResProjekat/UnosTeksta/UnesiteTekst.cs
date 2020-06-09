@@ -38,14 +38,15 @@ namespace UnosTeksta
             {
                 Console.WriteLine("Morate uneti broj!");
                 
-            } 
-                switch (izbor)
-                {
-                    case 1:
-                        string s = "";
-                        Console.WriteLine("->Unesite tekst i naziv fajla u koji zelite da sacuvate uneti tekst: ");
-                        s = Console.ReadLine();
-                        Console.WriteLine("Uneli ste tekst: " + s+"\n");
+            }
+            switch (izbor)
+            {
+                case 1:
+                    string s = "";
+                    Console.WriteLine("->Unesite tekst i naziv fajla u koji zelite da sacuvate uneti tekst: ");
+                    s = Console.ReadLine();
+                    Console.WriteLine("Uneli ste tekst: " + s + "\n");
+                    // Console.WriteLine("Uneli ste tekst: " + s+"\n");
                     fileOrText = true;
                     return s;
                        

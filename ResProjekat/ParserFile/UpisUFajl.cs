@@ -35,9 +35,10 @@ namespace ParserFile
         }
 
 
-        public void UpisiUFajl(string s)
+        public bool UpisiUFajl(string s)
         {
             pt.PrimljenaPoruka = s;
+            bool b = false;
             string putanja = Environment.CurrentDirectory + "/" + primljeniTekst+".html";
                 if (ProveriTekst())
                 {
@@ -48,13 +49,14 @@ namespace ParserFile
                 //UpisiUBazu(primljeniTekst, putanja);
                 sw.Close();
                 stream.Close();
-
+                b = true;
                 }
                 else
                 {
+                b = false;
                 Console.WriteLine("Tekst nije u ispravnom formatu!\nNe moze da se upise u fajl!\n");
-
                 }
+            return b;
         }
 
        public bool ProveriTekst()
