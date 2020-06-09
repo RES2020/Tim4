@@ -39,29 +39,32 @@ namespace UnosTeksta
             VirtualUI.PopuniTabeluFajlInicijalno();
             do
             {
-
+                //Primamo tekst koji je korisnik uneo
                 String s = ut.Unos();
-                if (s == "")
+                if (s == "Pogresna opcija!")
                 {
-                    Console.WriteLine(">>Unesite ponovo!\n");
+                    Console.WriteLine(">>>Unesite ponovo!\n");
                     continue;
                 }
 
-                if (s == "izadji")//Ako smo uneli izadji, prekidamo rad programa!
+                //Ako smo uneli izadji, prekidamo rad programa!
+                if (s == "izadji")
                 {
                     break;
                 }
                 //pt.UnetiTekst = ut.Unos();//saljemo tekst ili fajl u klasu prosledi tekst.
 
+                //saljemo ekstenziju fajla parseru da proveri tekst da li je ispravna!
+                pf.PrimljenFajl = s;
 
-                pf.PrimljenFajl = s;//saljemo ekstenziju fajla parseru da proveri tekst da li je ispravna!
-
-                if (!ut.FileOrText)//Nakon izbora(tekst ili file), ako smo izabrali tekst da unesemo necemo napraviti string "UnetiFajl" jer je on namenjen za proveru fajla da bi izdvojili naziv fajla.
+                //Nakon izbora(tekst ili file), ako smo izabrali tekst da unesemo necemo napraviti string "UnetiFajl"
+                //jer je on namenjen za proveru fajla da bi izdvojili naziv fajla.
+                if (!ut.FileOrText)
                 {
                     try
                     {
-
-                        UnetiFajl = s.Split(';')[1];//Ovde uzimamo naziv fajla.
+                        //Ovde uzimamo naziv fajla.
+                        UnetiFajl = s.Split(';')[1];
                     }
                     catch
                     {
@@ -75,7 +78,8 @@ namespace UnosTeksta
 
                 try
                 {
-                    ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
+                    //saljemo tekst na proveru!
+                    ptt.PrimljenaPoruka = s.Split(';')[0];
                 }
                 catch
                 {
@@ -84,6 +88,7 @@ namespace UnosTeksta
 
                 try
                 {
+                    //Uzimamo naziv fajla i saljemo ga VirtualUI za dalji rad
                     ui.PrimljeniFajl = s.Split(';')[1];
                 }
                 catch
@@ -92,19 +97,21 @@ namespace UnosTeksta
 
                 }
 
-                ptt.PrimljenaPoruka = s.Split(';')[0];//saljemo tekst na proveru!
+                //saljemo tekst na proveru!
+                ptt.PrimljenaPoruka = s.Split(';')[0];
                 ui.Sadrzaj = ptt.PrimljenaPoruka;
 
+                //primamo proveru od parsera
                 string ss = "";
-                ss = ptt.SaljiKlijentu();//primamo proveru od parsera.
+                ss = ptt.SaljiKlijentu();
 
 
 
-
+                //Odgovor parsera da li je tekst u ispravnom formatu
                 if (ut.FileOrText)
                 {
                     Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
-                    if (ss == "NOT OK")
+                    if (ss == "Tekst nije unet u ispravnom html formatu!\n")
                     {
                         continue;
                     }
@@ -117,35 +124,41 @@ namespace UnosTeksta
                         //Console.WriteLine("Greska!\n");
                     }
 
-
+                    //Upisujemo tekst koji je korisnik uneo
+                    //Splitujemo po ; i uzimamo sa prvog mesta tekst, a na drugom mestu je naziv fajla
                     uf.UpisiUFajl(s.Split(';')[0]);
+
+                    //Ovde proveravamo da li su fajlovi isti
                     bool b = false;
                     b = ui.DaLiJeIstiFajl();
 
 
                     if (b)
                     {
-                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!!\n");
+                        Console.WriteLine("Fajl sa tim nazivom vec postoji u bazi podataka!\nFajl nije upisan u bazu podataka!!\n");
+                        Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
+                        Console.WriteLine("Sadrzaj fajla: " + ui.Sadrzaj);
 
                     }
                     else
                     {
-                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!!\n");
+                        Console.WriteLine("Fajl sa tim nazivom ne postoji u bazi podataka!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!!\n");
+                        continue;
                     }
 
 
-
+                    //Proveravamo sadrzaj fajlova
                     bool bb = ui.ProveraPromene(ptt.PrimljenaPoruka);
                     if (bb)
                     {
-                        Console.WriteLine("Isti su\n");
+                        Console.WriteLine("Isti su sadrzaji fajlova!\nNema promena u sadrzaju.\n");
                     }
                     else
                     {
-                        Console.WriteLine("Nisu isti\n");
+                        Console.WriteLine("Nisu isti sadrzaji fajlova!\n");
                     }
-                    Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
-                    Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
+                   // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
+                   // Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
 
                 }
                 else
@@ -161,12 +174,14 @@ namespace UnosTeksta
 
                     if (b)
                     {
-                        Console.WriteLine("Fajlovi su isti!\nFajl nije upisan u bazu!\n");
+                        Console.WriteLine("Nazivi fajlova su isti!\nFajl nije upisan u bazu podataka!\n");
+                        Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
+                        Console.WriteLine("Sadrzaj fajla: " + ui.Sadrzaj);
 
                     }
                     else
                     {
-                        Console.WriteLine("Fajlovi nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                        Console.WriteLine("Nazivi fajlova nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
                     }
                 }
 

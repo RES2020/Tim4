@@ -31,11 +31,11 @@ namespace Parser
             if (OtvarajuciTagovi() && ZatvarajuciTagovi())
             {
                 
-                s = "OK";
+                s = "Tekst je unet u ispravnom html formatu!\n";
             }
             else
             {
-                s = "NOT OK";
+                s = "Tekst nije unet u ispravnom html formatu!\n";
             }
             return s;
         }

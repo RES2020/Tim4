@@ -37,6 +37,7 @@ namespace UnosTeksta
             catch
             {
                 Console.WriteLine("Morate uneti broj!");
+                
             } 
                 switch (izbor)
                 {
@@ -58,7 +59,8 @@ namespace UnosTeksta
                        
                     default:
                         Console.WriteLine("Pogresnu ste opciju izabrali!");
-                    return "Pogresna opcija!";
+                    
+                   return "Pogresna opcija!";
                        
                 }
 

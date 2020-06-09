@@ -86,7 +86,7 @@ namespace virtualui
             int id = VratiId();
             string sadrzaj = "";
             bool b = false;
-            string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdFajla='" + id + "'";
+            string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdSadrzaja='" + id + "'";
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand cmd2 = new SqlCommand(query2, connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
