@@ -173,6 +173,7 @@ namespace UnosTeksta
                     {
                         Console.WriteLine("Nisu isti sadrzaji fajlova!\n");
                     }
+
                    // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
                    // Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
 
