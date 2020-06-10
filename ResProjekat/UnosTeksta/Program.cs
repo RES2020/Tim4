@@ -144,6 +144,7 @@ namespace UnosTeksta
 
                     //Ovde proveravamo da li su fajlovi isti
                     bool b = false;
+
                     b = ui.DaLiJeIstiFajl();
 
 
