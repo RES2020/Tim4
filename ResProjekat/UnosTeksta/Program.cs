@@ -164,6 +164,7 @@ namespace UnosTeksta
 
                     //Proveravamo sadrzaj fajlova
                     bool bb = ui.ProveraPromene(ptt.PrimljenaPoruka);
+
                     if (bb)
                     {
                         Console.WriteLine("Isti su sadrzaji fajlova!\nNema promena u sadrzaju.\n");
