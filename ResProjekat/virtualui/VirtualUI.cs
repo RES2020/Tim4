@@ -14,6 +14,7 @@ namespace virtualui
         public static string connectionString;
         public static SqlConnection connection;
         public SqlCommand cmd;
+
         List<KolekcijaFajlovaIzBaze> kolekcija = KolekcijaFajlovaIzBaze.Kolekcija;
 
 
