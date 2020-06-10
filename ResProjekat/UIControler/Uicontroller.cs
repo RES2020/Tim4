@@ -28,7 +28,6 @@ namespace UIControler
             vui.PrimljeniFajl = primljeniFajl;
         }
 
-
         public string NazivFajlaOdVirtualUiKomponente()
         {
             return vui.SaljiUiControlleruNazivFajla();
