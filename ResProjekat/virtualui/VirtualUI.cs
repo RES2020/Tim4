@@ -15,6 +15,8 @@ namespace virtualui
         public static SqlConnection connection;
         public SqlCommand cmd;
         List<KolekcijaFajlovaIzBaze> kolekcija = KolekcijaFajlovaIzBaze.Kolekcija;
+        IRepozitorijum r;
+        
 
 
         private string primljeniFajl;
@@ -37,6 +39,7 @@ namespace virtualui
 
         public VirtualUI()
         {
+            r = new Repozitorijum(primljeniFajl,sadrzaj);
         }
 
         public VirtualUI(SqlCommand cmd, List<KolekcijaFajlovaIzBaze> kolekcija, string primljeniFajl, string sadrzaj)
@@ -48,34 +51,17 @@ namespace virtualui
             
         }
 
+        public VirtualUI(IRepozitorijum repo)
+        {
+            r = repo;
+        }
+
+
+
         public bool DaLiJeIstiFajl()
         {
-            string query = "SELECT * FROM Fajl";
-            bool b = false;
-            using (connection = new SqlConnection(connectionString))
-            using (cmd = new SqlCommand(query, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-            {
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                for(int i = 0; i < tabela.Rows.Count; i++)
-                {
-                    string naziv = tabela.Rows[i]["Naziv"].ToString().Trim();
-                    string ekstenzija= tabela.Rows[i]["Ekstenzija"].ToString().Trim();
-                    kolekcija.Add(new KolekcijaFajlovaIzBaze(naziv, ekstenzija));
-                }
-            }
-            foreach(var item in kolekcija)
-            {
-                if (item.NazivFajla == primljeniFajl)
-                {
-                    b = true;
-                    return b;
-                }
-            }
-            string putanja = Environment.CurrentDirectory + "/" + primljeniFajl + ".html";
-            UpisiUTabeluFajl(primljeniFajl, putanja);
-            UpisiUTabeluSadrzaj(putanja,primljeniFajl);
+            string ime = primljeniFajl;
+           bool b= r.DaLiJeIstiFajl(ime);
             return b;
         }
 
@@ -83,29 +69,8 @@ namespace virtualui
 
         public bool ProveraPromene(string s)
         {
-            int id = VratiId();
-            string sadrzaj = "";
-            bool b = false;
-            string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdSadrzaja='" + id + "'";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
-            {
-                try
-                {
-                    DataTable tabela = new DataTable();
-                    adapter.Fill(tabela);
-                    sadrzaj = tabela.Rows[0]["Sadrzaj"].ToString();
-                }
-                catch
-                {
-                    b = false;
-                }
-            }
-            if (sadrzaj == s)
-            {
-                b = true;
-            }
+            s = sadrzaj;
+            bool b = r.ProveraPromene(s,primljeniFajl,sadrzaj);
             return b;
         }
 
@@ -125,115 +90,29 @@ namespace virtualui
 
         public int VratiId()
         {
-            int id = 0;
-            string query2 = "SELECT Id FROM Fajl where Naziv='" + primljeniFajl + "'";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
-            {
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                id = int.Parse(tabela.Rows[0]["Id"].ToString());
-
-            }
+            int id = r.VratiId(primljeniFajl);
             return id;
         }
 
 
 
-        public static void UpisiUTabeluFajl(string name, string putanja)
+        public  void UpisiUTabeluFajl(string ime, string putanja)
         {
-            string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, connection))
-            {
-                try
-                {
-                    connection.Open();
-                    cmd.Parameters.AddWithValue("@Ime", name);
-                    cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
-                    cmd.ExecuteNonQuery();
-                }
-                catch(Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
+            ime = primljeniFajl;
+            r.UpisiUTabeluFajl(ime, putanja);
 
         }
 
-        public static void UpisiUTabeluSadrzaj(string putanja,string primljeniFajl)
+        public  void UpisiUTabeluSadrzaj(string putanja,string ime)
         {
-            try
-            {
-                List<string> stringovi = File.ReadLines(putanja).ToList();
-                string s = "";
-                int id = 0;
-                foreach (var item in stringovi)
-                {
-                    s += item;
-                }
-
-
-                string query2 = "SELECT Id FROM Fajl where Naziv='" + primljeniFajl + "'";
-                using (connection = new SqlConnection(connectionString))
-                using (SqlCommand cmd2 = new SqlCommand(query2, connection))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
-                {
-                    DataTable tabela = new DataTable();
-                    adapter.Fill(tabela);
-                    id = int.Parse(tabela.Rows[0]["Id"].ToString());
-
-                }
-
-
-                string query = "INSERT INTO SadrzajFajla VALUES (@Id,@Sadrzaj)";
-                using (connection = new SqlConnection(connectionString))
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    cmd.Parameters.AddWithValue("@Sadrzaj", s);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            ime = primljeniFajl;
+            r.UpisiUTabeluSadrzaj(putanja, ime);
         }
 
 
-        public static void PopuniTabeluFajlInicijalno()
+        public  void PopuniTabeluFajlInicijalno()
         {
-
-
-            string query2 = "SELECT * FROM Fajl";
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
-            {
-                DataTable tabela = new DataTable();
-                adapter.Fill(tabela);
-                if (tabela.Rows.Count == 0)
-                {
-
-                    string query = "INSERT INTO Fajl VALUES (@Ime,@Ekstenzija)";
-                    using (connection = new SqlConnection(connectionString))
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        connection.Open();
-                        cmd.Parameters.AddWithValue("@Ime", "fajl1");
-                        cmd.Parameters.AddWithValue("@Ekstenzija", @"C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTeksta\bin\Debug");
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                else
-                {
-                    //Ne radi nista!
-                }
-
-            }
+            r.PopuniTabeluFajlInicijalno();
         }
     }
 }

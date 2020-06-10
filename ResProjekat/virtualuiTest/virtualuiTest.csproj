@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08A6323E-456F-413B-93D3-A8478A50676D}</ProjectGuid>
+    <ProjectGuid>{01C7724E-0645-47EE-BDB8-6442A6512523}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>virtualui</RootNamespace>
-    <AssemblyName>virtualui</AssemblyName>
+    <RootNamespace>virtualuiTest</RootNamespace>
+    <AssemblyName>virtualuiTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FakeRepozitorijum.cs" />
-    <Compile Include="IRepozitorijum.cs" />
-    <Compile Include="Repozitorijum.cs" />
-    <Compile Include="VirtualUI.cs" />
+    <Compile Include="VirtualUITest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{f005daea-2878-4ec9-845a-d6020975555e}</Project>
-      <Name>Common</Name>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\virtualui\virtualui.csproj">
+      <Project>{08a6323e-456f-413b-93d3-a8478a50676d}</Project>
+      <Name>virtualui</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
