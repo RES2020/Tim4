@@ -44,11 +44,5 @@
     <Compile Include="PrimljeniTekst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProsledjivanjeTeksta\ProsledjivanjeTeksta.csproj">
-      <Project>{19015534-6c7c-4b3b-b8ec-1b781c0bad53}</Project>
-      <Name>ProsledjivanjeTeksta</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

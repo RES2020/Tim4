@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnosTeksta;
-using ProsledjivanjeTeksta;
 using Parser;
 using ParserFile;
 using System.IO;
@@ -18,7 +17,7 @@ namespace UnosTeksta
 {
     public class Program
     {
-        public static ProslediTekst pt = new ProslediTekst();
+        
         public static PrimljeniTekst ptt = new PrimljeniTekst();
         public static ProveraFajla pf = new ProveraFajla();
         public static UnesiteTekst utt = new UnesiteTekst();
@@ -26,6 +25,7 @@ namespace UnosTeksta
         public static VirtualUI ui = new VirtualUI();
         public static UpisUFajl uf = new UpisUFajl();
         public static Uicontroller uc = new Uicontroller();
+        public static Repozitorijum r = new Repozitorijum();
 
         public static string UnetiFajl = "";
         
@@ -36,7 +36,8 @@ namespace UnosTeksta
         {
             UpisUFajl.connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             VirtualUI.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
-            VirtualUI.PopuniTabeluFajlInicijalno();
+            Repozitorijum.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
+            ui.PopuniTabeluFajlInicijalno();
             do
             {
                 //Primamo tekst koji je korisnik uneo
@@ -100,6 +101,8 @@ namespace UnosTeksta
                 //saljemo tekst na proveru!
                 ptt.PrimljenaPoruka = s.Split(';')[0];
                 ui.Sadrzaj = ptt.PrimljenaPoruka;
+                r.Sadrzaj = ptt.PrimljenaPoruka;
+                r.PrimljeniFajl= s.Split(' ')[1].Split('.')[0];
 
                 //primamo proveru od parsera
                 string ss = "";
@@ -202,7 +205,7 @@ namespace UnosTeksta
                     }
                 }
 
-            } while (pt.UnetiTekst != "izadji");
+            } while (ptt.PrimljenaPoruka != "izadji");
         }
     }
 }
