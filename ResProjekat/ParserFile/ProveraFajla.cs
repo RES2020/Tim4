@@ -54,7 +54,7 @@ namespace ParserFile
                     else
                     {
                         b = false;
-                        break;
+                        //break;
                     }
                 }
             }
