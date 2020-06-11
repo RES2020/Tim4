@@ -28,7 +28,7 @@ namespace UnosTeksta
         public string Unos()
         {
 
-                Console.WriteLine("->Unesite opciju(1 ili 2).\n1.Unesite fajl u obliku teksta kao npr.: <html> <head> <title> Naslov aplikacije </title> </head> <body><b>NEKA APLIKACIJA </b></body></html> .\n2.Unesite putanju do fajla.\nVas izbor je: ");
+                Console.WriteLine("->Unesite opciju(1 ili 2).\n1.Unesite tekst u html formatu\n2.Unesite putanju do fajla\nVas izbor je: ");
                 int izbor = 0;
             try
             {
@@ -43,23 +43,25 @@ namespace UnosTeksta
             {
                 case 1:
                     string s = "";
-                    Console.WriteLine("->Unesite tekst i naziv fajla u koji zelite da sacuvate uneti tekst: ");
+                    Console.WriteLine("->Unesite tekst i naziv fajla u koji zelite da sacuvate uneti tekst: \n>>>Primer:<html> <head> <title> Naslov aplikacije </title> </head> <body><b>NEKI TEKST</b></body></html>;NazivFajla\nVas tekst:");
                     s = Console.ReadLine();
-                    Console.WriteLine("Uneli ste tekst: " + s + "\n");
+                    Console.WriteLine(">>>Uneli ste tekst: " + s + "\n");
+                    Console.WriteLine("--------------------------------------------------------------------------------\n");
                     // Console.WriteLine("Uneli ste tekst: " + s+"\n");
                     fileOrText = true;
                     return s;
                        
                     case 2:
                         string ss = "";
-                        Console.WriteLine("->Unesite putanju do fajla i naziv fajla(path nazivFajla) : ");
+                        Console.WriteLine("->Unesite putanju do fajla i naziv fajla(path nazivFajla): ");
                         ss = Console.ReadLine();
-                        Console.WriteLine("Uneli ste putanju do fajla(path nazivFajla): " + ss+"\n");
+                        Console.WriteLine(">>>Uneli ste putanju do fajla(path nazivFajla): " + ss+"\n");
+                        Console.WriteLine("--------------------------------------------------------------------------------\n");
                     fileOrText = false;
                     return ss;
                        
                     default:
-                        Console.WriteLine("Pogresnu ste opciju izabrali!");
+                        Console.WriteLine(">>>Pogresnu ste opciju izabrali!");
                     
                    return "Pogresna opcija!";
                        

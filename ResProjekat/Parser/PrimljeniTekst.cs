@@ -30,11 +30,11 @@ namespace Parser
             if (OtvarajuciTagovi() && ZatvarajuciTagovi())
             {
                 
-                s = "Tekst je unet u ispravnom html formatu!\n";
+                s = ">>>Tekst je unet u ispravnom html formatu!\n";
             }
             else
             {
-                s = "Tekst nije unet u ispravnom html formatu!\n";
+                s = ">>>Tekst nije unet u ispravnom html formatu!\n";
             }
                 return s;
         }

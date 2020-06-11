@@ -113,8 +113,8 @@ namespace UnosTeksta
                 //Odgovor parsera da li je tekst u ispravnom formatu
                 if (ut.FileOrText)
                 {
-                    Console.WriteLine("*****PROVEREN TEKST*****\n" + ss);
-                    if (ss == "Tekst nije unet u ispravnom html formatu!\n")
+                    Console.WriteLine("******ODGOVOR OD PARSERA ZA TEKST******\n" + ss);
+                    if (ss == ">>>Tekst nije unet u ispravnom html formatu!\n")
                     {
                         continue;
                     }
@@ -153,14 +153,18 @@ namespace UnosTeksta
 
                     if (b)
                     {
-                        Console.WriteLine("Fajl sa tim nazivom vec postoji u bazi podataka!\nFajl nije upisan u bazu podataka!!\n");
-                        Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
-                        Console.WriteLine("Sadrzaj fajla: " + ui.Sadrzaj);
+                        Console.WriteLine("******ODGOVOR OD VIRTUAL UI******");
+                        Console.WriteLine(">>>Fajl sa tim nazivom vec postoji u bazi podataka!\n>>>Fajl nije upisan u bazu podataka!\n");
+                        Console.WriteLine("***Podaci Fajla:");
+                        Console.WriteLine(">>>Naziv fajla: " + ui.PrimljeniFajl);
+                        Console.WriteLine(">>>Sadrzaj fajla: " + ui.Sadrzaj + "\n");
 
                     }
                     else
                     {
-                        Console.WriteLine("Fajl sa tim nazivom ne postoji u bazi podataka!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!!\n");
+                        Console.WriteLine("******ODGOVOR OD VIRTUAL UI******\n");
+                        Console.WriteLine(">>>Fajl sa tim nazivom ne postoji u bazi podataka!\n>>>Fajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                         continue;
                     }
 
@@ -170,11 +174,15 @@ namespace UnosTeksta
 
                     if (bb)
                     {
-                        Console.WriteLine("Isti su sadrzaji fajlova!\nNema promena u sadrzaju.\n");
+                        Console.WriteLine("***Provera sadrzaja fajlova");
+                        Console.WriteLine(">>>Isti su sadrzaji fajlova!\n>>>Nema promena u sadrzaju.\n");
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                     }
                     else
                     {
-                        Console.WriteLine("Nisu isti sadrzaji fajlova!\n");
+                        Console.WriteLine("***Provera sadrzaja fajlova");
+                        Console.WriteLine(">>>Nisu isti sadrzaji fajlova!\n");
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                     }
 
                    // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");

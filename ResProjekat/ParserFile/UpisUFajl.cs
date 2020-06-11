@@ -45,7 +45,8 @@ namespace ParserFile
                 FileStream stream = new FileStream(putanja, FileMode.Create);
                 StreamWriter sw = new StreamWriter(stream);
                 sw.WriteLine(s);
-                Console.WriteLine("Uneti tekst je uspesno upisan u fajl!\n");
+                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******\n>>>Uneti tekst je uspesno upisan u fajl!\n");
+                Console.WriteLine("--------------------------------------------------------------------------------\n");
                 //UpisiUBazu(primljeniTekst, putanja);
                 sw.Close();
                 stream.Close();
@@ -54,8 +55,9 @@ namespace ParserFile
                 else
                 {
                 b = false;
-                Console.WriteLine("Tekst nije u ispravnom formatu!\nNe moze da se upise u fajl!\n");
-                }
+                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******\n>>>Tekst nije u ispravnom formatu!\nNe moze da se upise u fajl!\n");
+                Console.WriteLine("--------------------------------------------------------------------------------\n");
+            }
             return b;
         }
 
