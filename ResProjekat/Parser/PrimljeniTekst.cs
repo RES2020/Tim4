@@ -84,6 +84,12 @@ namespace Parser
             }
         }
 
+        public List<string> ListaUnosa()
+        {
+            List<string> pomocna = new List<string>();
+            return pomocna;
+        }
+
 
         public bool ZatvarajuciTagovi()
         {

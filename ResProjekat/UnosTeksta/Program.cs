@@ -28,9 +28,11 @@ namespace UnosTeksta
         public static Repozitorijum r = new Repozitorijum();
 
         public static string UnetiFajl = "";
-        
+        public static List<string> unosKorisnika = new List<string>();
 
-        
+
+
+
 
         static void Main(string[] args)
         {

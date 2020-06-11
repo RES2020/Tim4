@@ -11,6 +11,15 @@ namespace UnosTeksta
 
     public class UnesiteTekst:IUnesiteTekst
     {
+
+        private  List<string> unosKorisnika=new List<string>();
+
+        public  List<string> UnosKorisnika
+        {   
+            get { return unosKorisnika; }
+            set { unosKorisnika = value; }
+        }
+
         private bool fileOrText;
 
         public bool FileOrText
@@ -24,7 +33,6 @@ namespace UnosTeksta
         {
 
         }
-
         public string Unos()
         {
 
