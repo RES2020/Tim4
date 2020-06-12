@@ -44,7 +44,9 @@ namespace UnosTeksta
             }
             catch
             {
-                Console.WriteLine("Morate uneti broj!");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n>>>Morate uneti broj!");
+                Console.ResetColor();
                 
             }
             switch (izbor)
@@ -69,7 +71,9 @@ namespace UnosTeksta
                     return ss;
                        
                     default:
+                    Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(">>>Pogresnu ste opciju izabrali!");
+                    Console.ResetColor();
                     
                    return "Pogresna opcija!";
                        
