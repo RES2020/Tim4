@@ -18,6 +18,15 @@ namespace virtualui
         public SqlCommand cmd;
         List<KolekcijaFajlovaIzBaze> kolekcija = KolekcijaFajlovaIzBaze.Kolekcija;
 
+        private string celaPoruka;
+
+        public string CelaPoruka
+        {
+            get { return celaPoruka; }
+            set { celaPoruka = value; }
+        }
+
+
 
         private string primljeniFajl;
 
@@ -43,6 +52,59 @@ namespace virtualui
 
         public Repozitorijum()
         {
+        }
+
+        public List<string> ListaZaDelove(string s)
+        {
+            List<string> pomocna = new List<string>();
+            string  []tokeni = s.Split(' ');
+            foreach(var item in tokeni)
+            {
+                pomocna.Add(item);
+            }
+            return pomocna;
+        }
+
+
+        public Dictionary<int,string> ProveraPromenee(string s, string naziv, string sadrzaj)
+        {
+            int id = VratiId(naziv);
+            int brojac = 0;
+            string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdSadrzaja='" + id + "'";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand cmd2 = new SqlCommand(query2, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd2))
+            {
+                try
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+                    sadrzaj = tabela.Rows[0]["Sadrzaj"].ToString();
+                }
+                catch
+                {
+                    Console.WriteLine("Greska!");
+                }
+            }
+
+            List<string> pomocna = new List<string>();
+            Dictionary<int, string> pomocni = new Dictionary<int,string>();
+            Dictionary<int, string> pomocni2 = new Dictionary<int, string>();
+            string[] tokeni = sadrzaj.Split(' ');
+            foreach(var item in tokeni)
+            {
+                pomocna.Add(item);
+            }
+            List<string> pomocnaUnos = ListaZaDelove(s);
+           for(int i = 0; i < pomocna.Count; i++)
+            {
+                if (pomocna[i] != pomocnaUnos[i])
+                {
+                    pomocni.Add(i, pomocnaUnos[i]);
+                }
+            }
+
+            return pomocni;
         }
 
         public bool DaLiJeIstiFajl(string primljeniFajl)

@@ -76,6 +76,13 @@ namespace virtualui
         }
 
 
+        public Dictionary<int,string> ProveraPromene2(string s)
+        {
+            s = sadrzaj;
+            Dictionary<int, string> pom = r.ProveraPromenee(s, primljeniFajl, sadrzaj);
+            return pom;
+        }
+
 
         public string SaljiUiControlleruNazivFajla()
         {

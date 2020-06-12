@@ -102,6 +102,7 @@ namespace UnosTeksta
 
                 //saljemo tekst na proveru!
                 ptt.PrimljenaPoruka = s.Split(';')[0];
+                r.CelaPoruka = ptt.PrimljenaPoruka;
                 ui.Sadrzaj = ptt.PrimljenaPoruka;
                 r.Sadrzaj = ptt.PrimljenaPoruka;
                 r.PrimljeniFajl= s.Split(' ')[1].Split('.')[0];
@@ -185,6 +186,15 @@ namespace UnosTeksta
                         Console.WriteLine("***Provera sadrzaja fajlova");
                         Console.WriteLine(">>>Nisu isti sadrzaji fajlova!\n");
                         Console.WriteLine("--------------------------------------------------------------------------------");
+                    }
+
+                    Dictionary<int, string> pom = ui.ProveraPromene2(ptt.PrimljenaPoruka);
+                    int ukupnoPromena = pom.Count;
+                    foreach(var item in pom)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(item.Value);
+                        Console.ResetColor();
                     }
 
                    // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");

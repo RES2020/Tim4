@@ -32,6 +32,21 @@ namespace virtualui
             }
             return b;
         }
+        public Dictionary<int,string> ProveraPromenee(string s, string naziv, string ss)
+        {
+            RecnikZaProveraPromene = new Dictionary<string, string>();
+            RecnikZaProveraPromene.Add(naziv, ss);
+            Dictionary<int, string> pom = new Dictionary<int, string>();
+            string stringIzBaze = "";
+            foreach (var item in RecnikZaProveraPromene)
+            {
+                stringIzBaze = item.Value;
+            }
+            if (s == stringIzBaze)
+            {
+            }
+            return pom;
+        }
 
 
         public bool DaLiJeIstiFajl(string s)
