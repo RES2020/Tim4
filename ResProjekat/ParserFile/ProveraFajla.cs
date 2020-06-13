@@ -69,11 +69,17 @@ namespace ParserFile
         {
             if (ProveraPutanjeFajla())
             {
-                Console.WriteLine("*****PROVERENA PUTANJA FAJLA*****\nFAJL POSTOJI!\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("PROVERENA PUTANJA FAJLA");
+                Console.ResetColor();
+                Console.WriteLine(">>>FAJL POSTOJI!\n");
             }
             else
             {
-                Console.WriteLine("*****PROVERENA PUTANJA FAJLA *****\nFAJL NE POSTOJI!\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("PROVERENA PUTANJA FAJLA ");
+                Console.ResetColor();
+                Console.WriteLine(">>>FAJL NE POSTOJI!\n");
             }
         }
         

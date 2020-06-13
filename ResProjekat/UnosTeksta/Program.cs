@@ -99,13 +99,21 @@ namespace UnosTeksta
                    // Console.WriteLine("Greska!");
 
                 }
-
-                //saljemo tekst na proveru!
-                ptt.PrimljenaPoruka = s.Split(';')[0];
-                r.CelaPoruka = ptt.PrimljenaPoruka;
-                ui.Sadrzaj = ptt.PrimljenaPoruka;
-                r.Sadrzaj = ptt.PrimljenaPoruka;
-                r.PrimljeniFajl= s.Split(' ')[1].Split('.')[0];
+                try
+                {
+                    //saljemo tekst na proveru!
+                    ptt.PrimljenaPoruka = s.Split(';')[0];
+                    r.CelaPoruka = ptt.PrimljenaPoruka;
+                    ui.Sadrzaj = ptt.PrimljenaPoruka;
+                    r.Sadrzaj = ptt.PrimljenaPoruka;
+                    r.PrimljeniFajl = s.Split(' ')[1].Split('.')[0];
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(">>>Greska pri unosu!\n");
+                    Console.ResetColor();
+                }
 
                 //primamo proveru od parsera
                 string ss = "";
@@ -116,9 +124,13 @@ namespace UnosTeksta
                 //Odgovor parsera da li je tekst u ispravnom formatu
                 if (ut.FileOrText)
                 {
-                    Console.WriteLine("******ODGOVOR OD PARSERA ZA TEKST******\n" + ss);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("******ODGOVOR OD PARSERA ZA TEKST******");
+                    Console.ResetColor();
+                    Console.WriteLine(ss);
                     if (ss == ">>>Tekst nije unet u ispravnom html formatu!\n")
                     {
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                         continue;
                     }
                     try
@@ -156,16 +168,22 @@ namespace UnosTeksta
 
                     if (b)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("******ODGOVOR OD VIRTUAL UI******");
+                        Console.ResetColor();
                         Console.WriteLine(">>>Fajl sa tim nazivom vec postoji u bazi podataka!\n>>>Fajl nije upisan u bazu podataka!\n");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("***Podaci Fajla:");
+                        Console.ResetColor();
                         Console.WriteLine(">>>Naziv fajla: " + ui.PrimljeniFajl);
                         Console.WriteLine(">>>Sadrzaj fajla: " + ui.Sadrzaj + "\n");
 
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("******ODGOVOR OD VIRTUAL UI******\n");
+                        Console.ResetColor();
                         Console.WriteLine(">>>Fajl sa tim nazivom ne postoji u bazi podataka!\n>>>Fajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
                         Console.WriteLine("--------------------------------------------------------------------------------");
                         continue;
@@ -177,15 +195,22 @@ namespace UnosTeksta
 
                     if (bb)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("***Provera sadrzaja fajlova");
+                        Console.ResetColor();
                         Console.WriteLine(">>>Isti su sadrzaji fajlova!\n>>>Nema promena u sadrzaju.\n");
                         Console.WriteLine("--------------------------------------------------------------------------------");
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("***Provera sadrzaja fajlova");
+                        Console.ResetColor();
                         Console.WriteLine(">>>Nisu isti sadrzaji fajlova!\n");
-                        Console.WriteLine("--------------------------------------------------------------------------------");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("***Promene: ");
+                        Console.ResetColor();
+                        //Console.WriteLine("--------------------------------------------------------------------------------");
                     }
 
                     Dictionary<int, string> pom = ui.ProveraPromene2(ptt.PrimljenaPoruka);
@@ -195,6 +220,7 @@ namespace UnosTeksta
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(item.Value);
                         Console.ResetColor();
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                     }
 
                    // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
@@ -203,25 +229,36 @@ namespace UnosTeksta
                 }
                 else
                 {
-
-                    pf.Fajl = s.Split(' ')[1];
-                    ui.PrimljeniFajl = s.Split(' ')[1].Split('.')[0];
-                    pf.Odgovorparserfile();
-
-                    bool b = false;
-                    b = ui.DaLiJeIstiFajl();
-
-
-                    if (b)
+                    try
                     {
-                        Console.WriteLine("Nazivi fajlova su isti!\nFajl nije upisan u bazu podataka!\n");
-                        Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
-                        Console.WriteLine("Ekstenzija: " + ui.Sadrzaj);
+                        pf.Fajl = s.Split(' ')[1];
+                        ui.PrimljeniFajl = s.Split(' ')[1].Split('.')[0];
+                        pf.Odgovorparserfile();
 
+                        bool b = false;
+                        b = ui.DaLiJeIstiFajl();
+
+
+                        if (b)
+                        {
+                            Console.WriteLine("Nazivi fajlova su isti!\nFajl nije upisan u bazu podataka!\n");
+                            Console.WriteLine("Naziv fajla: " + ui.PrimljeniFajl + "\n");
+                            Console.WriteLine("Ekstenzija: " + ui.Sadrzaj);
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nazivi fajlova nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+                        }
                     }
-                    else
+                    catch
                     {
-                        Console.WriteLine("Nazivi fajlova nisu isti!\nFajl je uspesno upisan u tabelu Fajl i u tabelu SadrzajFajla!\n");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(">>>Pogresna putanja fajla!\n");
+                        Console.ResetColor();
+                        Console.WriteLine("--------------------------------------------------------------------------------");
                     }
                 }
 
