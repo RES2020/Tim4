@@ -12,7 +12,7 @@ namespace UIControler
     {
 
         public static ProveraFajla pf = new ProveraFajla();
-        public static VirtualUI vui = new VirtualUI();
+        public static VirtualUI vui=new VirtualUI();
         
         private string primljeniFajl;
 
@@ -21,34 +21,19 @@ namespace UIControler
             get { return primljeniFajl; }
             set { primljeniFajl = value; }
         }
+        private string sadrzaj;
+
+        public string Sadrzaj
+        {
+            get { return sadrzaj; }
+            set { sadrzaj = value; }
+        }
+
 
         public Uicontroller()
         {
             primljeniFajl = pf.Fajl;
             vui.PrimljeniFajl = primljeniFajl;
-        }
-
-        public string NazivFajlaOdVirtualUiKomponente()
-        {
-            return vui.SaljiUiControlleruNazivFajla();
-        }
-
-        public string SadrzajFajlaOdVirtualUiKomponente()
-        {
-            string s = vui.SaljiUiControlleruSadrzajFajla();
-            return s;
-        }
-
-        public string SaljiUiKomponentiNazivFajla()
-        {
-            string s = NazivFajlaOdVirtualUiKomponente();
-            return s;
-        }
-
-        public string SaljiUiKomponentiSadrzajFajla()
-        {
-            string s = SadrzajFajlaOdVirtualUiKomponente();
-            return s;
         }
     }
 }

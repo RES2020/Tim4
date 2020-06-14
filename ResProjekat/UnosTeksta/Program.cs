@@ -27,7 +27,7 @@ namespace UnosTeksta
         public static Uicontroller uc = new Uicontroller();
         public static Repozitorijum r = new Repozitorijum();
 
-        public static string UnetiFajl = "";
+        //public static string UnetiFajl = "";
         public static List<string> unosKorisnika = new List<string>();
 
 
@@ -39,7 +39,8 @@ namespace UnosTeksta
             UpisUFajl.connectionString = ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             VirtualUI.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
             Repozitorijum.connectionString= ConfigurationManager.ConnectionStrings["UnosTeksta.Properties.Settings.BazaConnectionString"].ConnectionString;
-            ui.PopuniTabeluFajlInicijalno();
+            string UnetiFajl = "";
+        ui.PopuniTabeluFajlInicijalno();
             do
             {
                 //Primamo tekst koji je korisnik uneo
@@ -88,6 +89,7 @@ namespace UnosTeksta
                 {
                   //  Console.WriteLine("Greska!");
                 }
+               // uc.Sadrzaj = ptt.PrimljenaPoruka;
 
                 try
                 {
@@ -105,6 +107,7 @@ namespace UnosTeksta
                     ptt.PrimljenaPoruka = s.Split(';')[0];
                     r.CelaPoruka = ptt.PrimljenaPoruka;
                     ui.Sadrzaj = ptt.PrimljenaPoruka;
+                    uc.Sadrzaj = ptt.PrimljenaPoruka;
                     r.Sadrzaj = ptt.PrimljenaPoruka;
                     r.PrimljeniFajl = s.Split(' ')[1].Split('.')[0];
                 }
@@ -210,7 +213,8 @@ namespace UnosTeksta
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("***Promene: ");
                         Console.ResetColor();
-                        //Console.WriteLine("--------------------------------------------------------------------------------");
+                        Console.WriteLine("--------------------------------------------------------------------------------");
+
                     }
 
                     Dictionary<int, string> pom = ui.ProveraPromene2(ptt.PrimljenaPoruka);
@@ -222,9 +226,20 @@ namespace UnosTeksta
                         Console.ResetColor();
                         Console.WriteLine("--------------------------------------------------------------------------------");
                     }
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Broj promena:");
+                    Console.ResetColor();
+                    Console.WriteLine(ukupnoPromena);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Promenjeni tekst\n");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(uc.Sadrzaj);
+                    Console.ResetColor();
 
-                   // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
-                   // Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
+
+                    // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");
+                    // Console.WriteLine("Odgovor od virtualui na controleru \n" + ui.SaljiUiControlleruSadrzajFajla()+"\n");
 
                 }
                 else
