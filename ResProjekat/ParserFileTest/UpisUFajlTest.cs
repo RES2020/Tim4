@@ -19,6 +19,7 @@ namespace ParserFileTest
             UpisUFajl uf = new UpisUFajl();
             b = uf.UpisiUFajl(s);
             Assert.AreEqual(true, b);
+
         }
 
         [Test]
