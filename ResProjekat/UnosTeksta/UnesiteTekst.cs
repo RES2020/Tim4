@@ -55,6 +55,7 @@ namespace UnosTeksta
                     string s = "";
                     Console.WriteLine("->Unesite tekst i naziv fajla u koji zelite da sacuvate uneti tekst: \n>>>Primer:<html> <head> <title> Naslov aplikacije </title> </head> <body><b>NEKI TEKST</b></body></html>;NazivFajla\nVas tekst:");
                     s = Console.ReadLine();
+        
                     Console.WriteLine(">>>Uneli ste tekst: " + s + "\n");
                     Console.WriteLine("--------------------------------------------------------------------------------\n");
                     // Console.WriteLine("Uneli ste tekst: " + s+"\n");

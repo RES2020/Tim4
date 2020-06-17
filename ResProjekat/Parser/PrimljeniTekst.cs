@@ -27,7 +27,7 @@ namespace Parser
         public string SaljiKlijentu()
         {
             string s = "";
-            if (OtvarajuciTagovi() && ZatvarajuciTagovi())
+            if (OtvarajuciTagovi() && ZatvarajuciTagovi() && ProveraBody(primljenaPoruka))
             {
                 
                 s = ">>>Tekst je unet u ispravnom html formatu!\n";
@@ -39,15 +39,69 @@ namespace Parser
                 return s;
         }
 
-        public bool ProveraBody()
+        public bool ProveraBody(string s)
         {
-            bool b = true ;
-            Regex regex = new Regex(@"\s*");
-            string[] otvarajuci = primljenaPoruka.Split(' ');
-            if (!regex.IsMatch(otvarajuci[7]))
+            bool b = true;
+            string d = s.Split(' ')[7];
+
+            if (d.Contains("<b>"))
             {
-                b = false;
+                if (d.Contains("</b>"))
+                {
+                    //return b;
+
+                }
+                else
+                {
+                    b = false;
+                    //return b;
+                }
             }
+            if (d.Contains("<br>"))
+            {
+                // return b;
+            }
+            if (d.Contains("<ul>"))
+            {
+                if (d.Contains("<li>"))
+                {
+                    if (d.Contains("</li>"))
+                    {
+                        //return b;
+                    }
+                    else
+                    {
+                        b = false;
+                        //return b;
+                    }
+                }
+                else
+                {
+                    b = false;
+                    //return b;
+                }
+            }
+            if (d.Contains("<p>"))
+            {
+                if (d.Contains("</p>"))
+                {
+                    //return b;
+                }
+                else
+                {
+                    b = false;
+                    //return b;
+                }
+
+            }
+            if (d.Contains("<a href>"))
+            {
+                // return b;
+            }
+
+
+
+
             return b;
         }
 
@@ -133,7 +187,7 @@ namespace Parser
         {
             bool b = false;
 
-            if(OtvarajuciTagovi()&&ZatvarajuciTagovi())
+            if(OtvarajuciTagovi()&&ZatvarajuciTagovi() && ProveraBody(primljenaPoruka))
             {
                 b = true;
             }

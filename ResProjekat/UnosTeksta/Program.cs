@@ -179,7 +179,12 @@ namespace UnosTeksta
                         Console.WriteLine("***Podaci Fajla:");
                         Console.ResetColor();
                         Console.WriteLine(">>>Naziv fajla: " + ui.PrimljeniFajl);
-                        Console.WriteLine(">>>Sadrzaj fajla: " + ui.Sadrzaj + "\n");
+                        string uis = ui.Sadrzaj;
+                        if (uis.Contains("_"))
+                        {
+                            uis = uis.Replace('_', ' ');
+                        }
+                        Console.WriteLine(">>>Sadrzaj fajla: " + uis + "\n");
 
                     }
                     else
@@ -230,12 +235,27 @@ namespace UnosTeksta
                     Console.WriteLine("Broj promena:");
                     Console.ResetColor();
                     Console.WriteLine(ukupnoPromena);
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Promenjeni tekst\n");
-                    Console.ResetColor();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(uc.Sadrzaj);
-                    Console.ResetColor();
+                    if (ukupnoPromena == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Nema promena!\n");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Promenjeni tekst:");
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        string ucc = uc.Sadrzaj;
+                        if (ucc.Contains("_"))
+                        {
+                            ucc = ucc.Replace('_', ' ');
+                        }
+                        Console.WriteLine(ucc);
+                        Console.ResetColor();
+                        Console.WriteLine("--------------------------------------------------------------------------------");
+                    }
 
 
                     // Console.WriteLine("Odgovor od virtualui na controleru \n"+uc.NazivFajlaOdVirtualUiKomponente()+"\n");

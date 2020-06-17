@@ -44,8 +44,15 @@ namespace ParserFile
                 {
                 FileStream stream = new FileStream(putanja, FileMode.Create);
                 StreamWriter sw = new StreamWriter(stream);
+                if (s.Contains("_"))
+                {
+                    s = s.Replace('_', ' ');
+                }
                 sw.WriteLine(s);
-                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******\n>>>Uneti tekst je uspesno upisan u fajl!\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******");
+                Console.ResetColor();
+                Console.WriteLine(">>>Uneti tekst je uspesno upisan u fajl!\n");
                 Console.WriteLine("--------------------------------------------------------------------------------\n");
                 //UpisiUBazu(primljeniTekst, putanja);
                 sw.Close();
@@ -55,7 +62,10 @@ namespace ParserFile
                 else
                 {
                 b = false;
-                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******\n>>>Tekst nije u ispravnom formatu!\nNe moze da se upise u fajl!\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******");
+                Console.ResetColor();
+                Console.WriteLine(">>>Tekst nije u ispravnom formatu!\nNe moze da se upise u fajl!\n");
                 Console.WriteLine("--------------------------------------------------------------------------------\n");
             }
             return b;
