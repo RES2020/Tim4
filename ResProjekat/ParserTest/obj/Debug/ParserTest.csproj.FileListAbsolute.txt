@@ -1,0 +1,11 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\ParserTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\ParserTest.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\nunit.framework.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\Parser.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\Parser.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\bin\Debug\nunit.framework.xml
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\obj\Debug\ParserTest.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\obj\Debug\ParserTest.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\obj\Debug\ParserTest.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\obj\Debug\ParserTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserTest\obj\Debug\ParserTest.pdb

@@ -1,0 +1,9 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\bin\Debug\virtualui.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\bin\Debug\virtualui.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\bin\Debug\Common.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\bin\Debug\Common.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\obj\Debug\virtualui.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\obj\Debug\virtualui.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\obj\Debug\virtualui.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\obj\Debug\virtualui.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualui\obj\Debug\virtualui.pdb

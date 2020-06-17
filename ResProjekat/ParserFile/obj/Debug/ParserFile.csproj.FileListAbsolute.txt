@@ -1,0 +1,9 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\bin\Debug\ParserFile.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\bin\Debug\ParserFile.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\bin\Debug\Parser.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\bin\Debug\Parser.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\obj\Debug\ParserFile.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\obj\Debug\ParserFile.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\obj\Debug\ParserFile.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\obj\Debug\ParserFile.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ParserFile\obj\Debug\ParserFile.pdb

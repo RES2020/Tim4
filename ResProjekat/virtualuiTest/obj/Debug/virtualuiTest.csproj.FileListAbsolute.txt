@@ -1,0 +1,13 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\virtualuiTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\virtualuiTest.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\nunit.framework.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\virtualui.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\Common.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\virtualui.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\nunit.framework.xml
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\bin\Debug\Common.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\obj\Debug\virtualuiTest.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\obj\Debug\virtualuiTest.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\obj\Debug\virtualuiTest.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\obj\Debug\virtualuiTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\virtualuiTest\obj\Debug\virtualuiTest.pdb

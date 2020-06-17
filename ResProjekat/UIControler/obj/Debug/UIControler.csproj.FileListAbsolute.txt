@@ -1,0 +1,15 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\UIControler.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\UIControler.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\ParserFile.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\virtualui.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\Parser.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\Common.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\ParserFile.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\virtualui.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\Parser.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\bin\Debug\Common.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\obj\Debug\UIControler.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\obj\Debug\UIControler.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\obj\Debug\UIControler.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\obj\Debug\UIControler.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UIControler\obj\Debug\UIControler.pdb

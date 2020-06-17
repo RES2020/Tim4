@@ -1,0 +1,6 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\bin\Debug\ProsledjivanjeTeksta.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\bin\Debug\ProsledjivanjeTeksta.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\obj\Debug\ProsledjivanjeTeksta.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\obj\Debug\ProsledjivanjeTeksta.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\obj\Debug\ProsledjivanjeTeksta.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\ProsledjivanjeTeksta\obj\Debug\ProsledjivanjeTeksta.pdb

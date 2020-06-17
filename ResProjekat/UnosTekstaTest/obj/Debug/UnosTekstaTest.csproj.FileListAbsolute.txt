@@ -1,0 +1,9 @@
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\bin\Debug\UnosTekstaTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\bin\Debug\UnosTekstaTest.pdb
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\bin\Debug\nunit.framework.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\bin\Debug\nunit.framework.xml
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\obj\Debug\UnosTekstaTest.csprojAssemblyReference.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\obj\Debug\UnosTekstaTest.csproj.CoreCompileInputs.cache
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\obj\Debug\UnosTekstaTest.csproj.CopyComplete
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\obj\Debug\UnosTekstaTest.dll
+C:\Users\Milenko\Documents\Tim4\ResProjekat\UnosTekstaTest\obj\Debug\UnosTekstaTest.pdb
