@@ -224,10 +224,16 @@ namespace UnosTeksta
 
                     Dictionary<int, string> pom = ui.ProveraPromene2(ptt.PrimljenaPoruka);
                     int ukupnoPromena = pom.Count;
+                    string pomm;
                     foreach(var item in pom)
                     {
+                        pomm = item.Value;
+                        if (pomm.Contains("_"))
+                        {
+                            pomm = pomm.Replace('_', ' ');
+                        }
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine(item.Value);
+                        Console.WriteLine(pomm);
                         Console.ResetColor();
                         Console.WriteLine("--------------------------------------------------------------------------------");
                     }
