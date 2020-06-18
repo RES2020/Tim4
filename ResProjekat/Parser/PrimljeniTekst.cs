@@ -24,10 +24,10 @@ namespace Parser
 
         }
 
-        public string SaljiKlijentu()
+        public string SaljiKlijentu(string s)
         {
-            string s = "";
-            if (OtvarajuciTagovi() && ZatvarajuciTagovi() && ProveraBody(primljenaPoruka))
+            primljenaPoruka = s;
+            if (OtvarajuciTagovi(primljenaPoruka) && ZatvarajuciTagovi(primljenaPoruka) && ProveraBody(primljenaPoruka))
             {
                 
                 s = ">>>Tekst je unet u ispravnom html formatu!\n";
@@ -94,24 +94,28 @@ namespace Parser
                 }
 
             }
-            if (d.Contains("<a href>"))
+            if (d.Contains("<ahref>"))
             {
-                // return b;
+                if (d.Contains("/a"))
+                {
+
+                }
+                else
+                {
+                    b = false;
+                }
             }
-
-
-
-
             return b;
         }
 
-        public bool OtvarajuciTagovi()
+        public bool OtvarajuciTagovi(string s)
         {
             bool b = true;
+            primljenaPoruka=s;
             try
             {
                 
-                string[] otvarajuci = primljenaPoruka.Split(' ');
+                string[] otvarajuci = s.Split(' ');
 
                 if (otvarajuci[0] != "<html>")
                 {
@@ -137,17 +141,18 @@ namespace Parser
                 return b;
             }
         }
-
+        /*
         public List<string> ListaUnosa()
         {
             List<string> pomocna = new List<string>();
             return pomocna;
-        }
+        }*/
 
 
-        public bool ZatvarajuciTagovi()
+        public bool ZatvarajuciTagovi(string s)
         {
             bool b = true;
+            primljenaPoruka = s;
             try
             {
                 string[] zatvarajuci = primljenaPoruka.Split(' ');
@@ -187,7 +192,7 @@ namespace Parser
         {
             bool b = false;
 
-            if(OtvarajuciTagovi()&&ZatvarajuciTagovi() && ProveraBody(primljenaPoruka))
+            if(OtvarajuciTagovi(primljenaPoruka)&&ZatvarajuciTagovi(primljenaPoruka) && ProveraBody(primljenaPoruka))
             {
                 b = true;
             }

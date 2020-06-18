@@ -73,7 +73,6 @@ namespace UnosTeksta
                     catch
                     {
                         //pf.fajl = "jgjfjh";
-                       // Console.WriteLine("Greska!\n");
                     }
                 }
 
@@ -120,7 +119,7 @@ namespace UnosTeksta
 
                 //primamo proveru od parsera
                 string ss = "";
-                ss = ptt.SaljiKlijentu();
+                ss = ptt.SaljiKlijentu(ptt.PrimljenaPoruka);
 
 
 
@@ -131,6 +130,7 @@ namespace UnosTeksta
                     Console.WriteLine("******ODGOVOR OD PARSERA ZA TEKST******");
                     Console.ResetColor();
                     Console.WriteLine(ss);
+                    Console.WriteLine("--------------------------------------------------------------------------------");
                     if (ss == ">>>Tekst nije unet u ispravnom html formatu!\n")
                     {
                         Console.WriteLine("--------------------------------------------------------------------------------");
@@ -189,6 +189,12 @@ namespace UnosTeksta
                     }
                     else
                     {
+                        if (ui.PrimljeniFajl == null)
+                        {
+                            Console.WriteLine("Niste uneli naziv fajla!\n");
+                            Console.WriteLine("--------------------------------------------------------------------------------");
+                            continue;
+                        }
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("******ODGOVOR OD VIRTUAL UI******\n");
                         Console.ResetColor();
@@ -222,7 +228,7 @@ namespace UnosTeksta
 
                     }
 
-                    Dictionary<int, string> pom = ui.ProveraPromene2(ptt.PrimljenaPoruka);
+                    Dictionary<int, string> pom = ui.ProveraPromenee(ptt.PrimljenaPoruka);
                     int ukupnoPromena = pom.Count;
                     string pomm;
                     foreach(var item in pom)

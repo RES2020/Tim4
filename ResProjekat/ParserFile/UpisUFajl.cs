@@ -28,6 +28,7 @@ namespace ParserFile
             set { primljeniTekst = value; }
         }
 
+        
 
 
         public UpisUFajl()
@@ -52,6 +53,15 @@ namespace ParserFile
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("******ODGOVOR OD PARSERA ZA FAJL******");
                 Console.ResetColor();
+                if (primljeniTekst == null)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Niste uneli naziv fajla!\n");
+                    Console.ResetColor();
+                    Console.WriteLine("--------------------------------------------------------------------------------\n");
+                    return false;
+
+                }
                 Console.WriteLine(">>>Uneti tekst je uspesno upisan u fajl!\n");
                 Console.WriteLine("--------------------------------------------------------------------------------\n");
                 //UpisiUBazu(primljeniTekst, putanja);

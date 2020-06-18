@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parser", "Parser", "{256439
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI Controler", "UI Controler", "{802BBFCB-39D6-46CB-9D6B-65605AA634A3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Virtual UI Controler", "Virtual UI Controler", "{38AC1416-BF10-4D5A-BF61-EF05E281919D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Virtual UI", "Virtual UI", "{38AC1416-BF10-4D5A-BF61-EF05E281919D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnosTeksta", "UnosTeksta\UnosTeksta.csproj", "{5DE5C35B-4BD4-456C-ACD6-41753AC6ACBB}"
 EndProject
@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "virtualuiTest", "virtualuiTest\virtualuiTest.csproj", "{01C7724E-0645-47EE-BDB8-6442A6512523}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Virtual UI Controler Test", "Virtual UI Controler Test", "{543B042E-65FE-4232-94D1-3D39FF2C9A84}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Virtual UI  Test", "Virtual UI  Test", "{543B042E-65FE-4232-94D1-3D39FF2C9A84}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ParserTest", "ParserTest", "{24E30809-65F8-4366-AD25-7B3E52522416}"
 EndProject
