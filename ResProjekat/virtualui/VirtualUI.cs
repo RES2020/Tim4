@@ -76,7 +76,7 @@ namespace virtualui
         }
 
 
-        public Dictionary<int,string> ProveraPromene2(string s)
+        public Dictionary<int,string> ProveraPromenee(string s)
         {
             s = sadrzaj;
             Dictionary<int, string> pom = r.ProveraPromenee(s, primljeniFajl, sadrzaj);

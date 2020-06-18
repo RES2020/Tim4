@@ -69,7 +69,7 @@ namespace virtualui
         public Dictionary<int,string> ProveraPromenee(string s, string naziv, string sadrzaj)
         {
             int id = VratiId(naziv);
-            int brojac = 0;
+            //int brojac = 0;
             string query2 = "SELECT Sadrzaj FROM SadrzajFajla where IdSadrzaja='" + id + "'";
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand cmd2 = new SqlCommand(query2, connection))
@@ -197,9 +197,12 @@ namespace virtualui
                     cmd.Parameters.AddWithValue("@Ekstenzija", putanja);
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception e)
+                catch
                 {
-                    Console.WriteLine(e);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Greska prilikom upisa u tabelu fajl!\n");
+                    Console.ResetColor();
+                    Console.WriteLine("--------------------------------------------------------------------------------");
                 }
             }
 
@@ -218,7 +221,7 @@ namespace virtualui
                     s += item;
                 }
 
-
+                
                 string query2 = "SELECT Id FROM Fajl where Naziv='" + primljeniFajl + "'";
                 using (connection = new SqlConnection(connectionString))
                 using (SqlCommand cmd2 = new SqlCommand(query2, connection))
@@ -241,9 +244,12 @@ namespace virtualui
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Greska prilikom upisa u tabelu Sadrzaj!\n");
+                Console.ResetColor();
+                Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
 
